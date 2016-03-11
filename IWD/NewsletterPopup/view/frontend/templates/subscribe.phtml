@@ -1,0 +1,155 @@
+    <?php $settingsForColor = $this->getSocialIconsColor();
+$socialIconsColor = json_decode($settingsForColor, true);
+?>
+
+<?php if ($this->getEnable()): ?>
+    <div class="iwd-newsletterpopup-main-wrapper">
+        <div id="iwd-newsletterpopup-wrapper">
+            <div class="main-newsletter-wrapper">
+                <div class="iwd-newsletter-title-wrapper">
+                    <div class="iwd-newsletterpopup-main-title">
+                        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('iwd-newsletterpopup-top')->toHtml(); ?>
+                    </div>
+                    <div class="iwd-newsletter-title-response">
+                        <h1 class="iwd-newsletter-success_title message_title"><?php echo __('Good News!') ?></h1>
+
+                        <h1 class="iwd-newsletter-error_title message_title"><?php echo __('Opps!') ?></h1>
+                    </div>
+                </div>
+                <div class="iwd-newsletter-content-wrapper">
+                    <form novalidate
+                          action="<?php /* @escapeNotVerified */
+                          echo $block->getFormActionUrl() ?>"
+                          method="post"
+                          data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+                          class="iwd-newseletter-form"
+                          name="iwd-newseletter-subscribe-form">
+                        <div class="iwd-newsletter-input-for-email">
+                            <input name="email" type="email" class="required-entry validate-email"
+                                   id="iwd-newsletterpopup-email-field"
+                                   placeholder="<?php /* @escapeNotVerified */
+                                   echo __('Enter your email address') ?>"
+                                   data-validate="{required:true, 'validate-email':true}"/>
+                        </div>
+                        <div class="iwd-newsletter-button-for-submit">
+                            <button class="iwd-newsletter-send-button" title="<?php /* @escapeNotVerified */
+                            echo __('Subscribe') ?>" type="submit">
+                                <span><?php echo __('Subscribe') ?></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="iwd-newsletter-content-response"></div>
+                <?php if (strlen($this->getSocialIcons()) > 50): ?>
+                    <div class="iwd-newsletter-footer-wrapper">
+                        <div class="iwd-newsletter-main-footer">
+                            <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('iwd-newsletterpopup-bottom')->toHtml(); ?>
+                            <?php echo $this->getSocialIcons(); ?>
+                        </div>
+                        <div class="iwd-newsletter-footer-response">
+                            <button class="iwd-newsletter-go-back"><?php echo __('Go back') ?></button>
+                            <button class="iwd-newsletter-start-shopping">
+                                <span><?php echo __('Start shopping') ?></span></button>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+        </div>
+    </div>
+<?php endif; ?>
+
+<style>
+    .iwd-newsletter-wrapper > .modal-inner-wrap {
+        width: <?php echo $this->getPopupWidth().'px';?>;
+        margin-top: <?php echo $this->getPopupTopPosition().'px'; ?>;
+    }
+
+    #iwd-newsletterpopup-wrapper .iwd-newsletter-send-button {
+        background-color: <?php echo '#'.$this->getButtonColor();?>;
+        color: <?php echo '#'.$this->getButtonTextColor();?>;
+    }
+
+    #iwd-newsletterpopup-wrapper .iwd-newsletter-send-button:hover {
+        background-color: <?php echo '#'.$this->getButtonHoverColor();?>;
+        color: <?php echo '#'.$this->getButtonHoverTextColor();?>;
+    }
+
+
+
+    /*STYLES FOR ICONS*/
+    .iwd-newsletter-main-footer .social_links a.facebook span.fa-square{color: <?php echo '#'.$socialIconsColor['facebook_bg'];?>;}
+    .iwd-newsletter-main-footer .social_links a.facebook span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['facebook_icon'];?>;}
+    .iwd-newsletter-main-footer .social_links a.facebook span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['facebook_bg_hover'];?>;}
+    .iwd-newsletter-main-footer .social_links a.facebook span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['facebook_icon_hover'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.twitter span.fa-square{color:<?php echo '#'.$socialIconsColor['twitter_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.twitter span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['twitter_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.twitter span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['twitter_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.twitter span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['twitter_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.linkedin span.fa-square{color:<?php echo '#'.$socialIconsColor['linkedIn_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.linkedin span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['linkedin_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.linkedin span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['linkedin_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.linkedin span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['linkedin_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.google span.fa-square{color:<?php echo '#'.$socialIconsColor['google_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.google span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['google_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.google span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['google_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.google span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['google_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.youtube span.fa-square{color:<?php echo '#'.$socialIconsColor['youtube_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.youtube span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['youtube_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.youtube span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['youtube_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.youtube span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['youtube_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.flickr span.fa-square{color:<?php echo '#'.$socialIconsColor['flickr_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.flickr span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['flickr_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.flickr span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['flickr_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.flickr span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['flickr_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.vimeo span.fa-square{color:<?php echo '#'.$socialIconsColor['vimeo_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.vimeo span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['vimeo_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.vimeo span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['vimeo_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.vimeo span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['vimeo_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.pinterest span.fa-square{color:<?php echo '#'.$socialIconsColor['pinterest_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.pinterest span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['pinterest_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.pinterest span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['pinterest_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.pinterest span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['pinterest_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.instagram span.fa-square{color:<?php echo '#'.$socialIconsColor['instagram_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.instagram span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['instagram_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.instagram span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['instagram_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.instagram span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['instagram_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.foursquare span.fa-square{color:<?php echo '#'.$socialIconsColor['foursquare_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.foursquare span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['foursquare_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.foursquare span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['foursquare_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.foursquare span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['foursquare_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.tumblr span.fa-square{color:<?php echo '#'.$socialIconsColor['tumblr_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.tumblr span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['tumblr_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.tumblr span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['tumblr_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.tumblr span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['tumblr_icon_hover_color'];?>;}
+
+    .iwd-newsletter-main-footer .social_links a.rss span.fa-square{color:<?php echo '#'.$socialIconsColor['rss_icon_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.rss span.fa-stack-20{color:<?php echo '#'.$socialIconsColor['rss_icon_color'];?>;}
+    .iwd-newsletter-main-footer .social_links a.rss span:hover .fa-square{color:<?php echo '#'.$socialIconsColor['rss_icon_hover_background'];?>;}
+    .iwd-newsletter-main-footer .social_links a.rss span.fa-stack-20:hover{color:<?php echo '#'.$socialIconsColor['rss_icon_hover_color'];?>;}
+    /*****************/
+
+</style>
+
+<script>
+    // <![CDATA[
+
+    require(['IWD_NewsletterPopup/js/iwd_newsletterpopup'],
+        function (iwdNewsletterpopup) {
+            var newsletterPopup = new iwdNewsletterpopup();
+            newsletterPopup.init();
+        });
+        var iwdNewspopupConfig = '<?php echo $this->getPopupParams()?>';
+
+    // ]]>
+</script>

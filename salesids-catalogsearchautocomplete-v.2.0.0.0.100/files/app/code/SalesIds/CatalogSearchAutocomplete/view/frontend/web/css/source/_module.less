@@ -1,0 +1,148 @@
+/**
+ * Copyright © 2016 SalesIds. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+ 
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .header {
+        .block-search.block-catalog-search-autocomplete {
+            .minisearch.loading {
+                .action.search:before {
+                    content: "";
+                }
+
+                .action.search {
+                    background-image: url(../SalesIds_CatalogSearchAutocomplete/images/ajax-loader-field.gif);
+                    height: 11px;
+                    margin-top: 10px;
+                    width: 16px;
+                }
+            }
+        }
+
+        .search-autocomplete.catalog-search-autocomplete {
+            background-color: @color-white;
+            border-top: 1px solid @color-gray76;
+            box-shadow: @popup__shadow;
+            left: -85px;
+            margin-top: 4px;
+            width: 350px;
+
+            ul {
+                li {
+                    color: @color-black;
+                    cursor: unset;
+                    padding: 10px;
+
+                    &:hover,
+                    &.selected {
+                        background-color: @color-white !important;
+                    }
+
+                    &:after {
+                        clear: both;
+                        content: '';
+                        display: block;
+                    }
+
+                    &.full-search {
+                        .action.close {
+                            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                            border: 0 none;
+                            box-shadow: none;
+                            box-sizing: content-box;
+                            cursor: pointer;
+                            display: inline-block;
+                            float: right;
+                            font-weight: 400;
+                            height: 40px;
+                            line-height: inherit;
+                            margin: 0;
+                            padding: 0;
+                            position: absolute;
+                            right: 0;
+                            text-decoration: none;
+                            text-shadow: none;
+                            top: 0;
+                            width: 40px;
+
+                            &:before {
+                                color: @color-gray56;
+                                content: @icon-remove;
+                                display: inline-block;
+                                font-family: @icons__font-name;
+                                font-size: 16px;
+                                font-weight: normal;
+                                line-height: 16px;
+                                margin: 0;
+                                overflow: hidden;
+                                text-align: center;
+                                vertical-align: top;
+                            }
+                        }
+                    }
+
+                    a {
+                        cursor: pointer;
+                    }
+
+                    .qs-option-image {
+                        float: left;
+                        max-width: 82px;
+                        width: 25%;
+                    }
+
+                    .qs-option-description {
+                        color: @color-black;
+                        display: inline-block;
+                        float: left;
+                        padding-left: 5%;
+                        text-align: left;
+                        width: 70%;
+
+                        .qs-option-title {
+                            display: inline-block;
+                            margin: 0 0 5px 0;
+                            width: 100%;
+                        }
+
+                        .qs-option-reviews {
+                            display: inline-block;
+                            text-transform: lowercase;
+                            width: 100%;
+
+                            .reviews-actions {
+                                font-size: 12px;
+                            }
+                        }
+
+                        .qs-option-price {
+                            display: inline-block;
+                            font-weight: bold;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//    Mobile
+//--------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .header {
+        .search-autocomplete.catalog-search-autocomplete {
+            border-top: 0;
+            left: 15px;
+            margin-top: 0;
+            right: 15px;
+            width: auto;
+        }
+    }
+}

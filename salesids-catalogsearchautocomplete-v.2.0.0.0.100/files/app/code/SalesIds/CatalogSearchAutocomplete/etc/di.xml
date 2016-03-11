@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 SalesIds. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Search\Controller\Ajax\Suggest" type="SalesIds\CatalogSearchAutocomplete\Controller\Override\Search\Ajax\Suggest"/>
+    <preference for="Magento\CatalogSearch\Model\Autocomplete\DataProvider" type="SalesIds\CatalogSearchAutocomplete\Model\Override\CatalogSearch\Autocomplete\DataProvider"/>
+</config>

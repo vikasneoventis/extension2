@@ -1,0 +1,6 @@
+title,identifier,content
+"Test",iwd-test,"<h1 class="iwd-newsletter-top-title title">REGISTER TO GET <span class="discount_amount">20% OFF</span> YOUR FIRST ORDER!</h1>
+<p class="iwd-newsletter-top-content">Be the first to hear about new products, special offers, latest news and sweepstakes by subscribing to the our newsletter.</p>"
+title,identifier,content
+"Test222",iwd-test-new,"<h1 class="iwd-newsletter-top-title title">REGISTER TO GET <span class="discount_amount">20% OFF</span> YOUR FIRST ORDER!</h1>
+<p class="iwd-newsletter-top-content">Be the first to hear about new products, special offers, latest news and sweepstakes by subscribing to the our newsletter.</p>"

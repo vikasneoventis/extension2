@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <iwd_newsletterpopup>
+            <general>
+                <enable_in_frontend>1</enable_in_frontend>
+                <head_title>Newsletter Pop-up</head_title>
+                <popup_top_position>auto</popup_top_position>
+            </general>
+        </iwd_newsletterpopup>
+    </default>
+</config>

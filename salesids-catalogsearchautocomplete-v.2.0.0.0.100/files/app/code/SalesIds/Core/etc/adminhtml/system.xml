@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 SalesIds. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="salesids_core_extensions" translate="label" type="text" sortOrder="1000" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>SalesIds Extensions</label>
+            <tab>advanced</tab>
+            <resource>SalesIds_Core::extensions</resource>
+            <group id="admin_notification" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Notifications Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_https" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Use HTTPS to Get Feed</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="frequency" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Update Frequency</label>
+                    <source_model>SalesIds\Core\Model\Config\Source\Notification\Frequency</source_model>
+                </field>
+                <field id="type_allow" translate="label" type="multiselect" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Notification Types Allowed</label>
+                    <source_model>SalesIds\Core\Model\Config\Source\Notification\Type</source_model>
+                </field>
+                <field id="last_update" translate="label" type="label" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Last Update</label>
+                    <frontend_model>SalesIds\Core\Block\System\Config\Form\Field\Notification</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
