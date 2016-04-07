@@ -1,0 +1,222 @@
+/**
+ * Easily manage navigation with Kahanit Awe Menu
+ *
+ * Kahanit Awe Menu by Kahanit(http://www.kahanit.com) is licensed under a
+ * Creative Creative Commons Attribution-NoDerivatives 4.0 International License.
+ * Based on a work at http://www.kahanit.com.
+ * Permissions beyond the scope of this license may be available at http://www.kahanit.com.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nd/4.0/.
+ *
+ * @author    Amit Sidhpura <amit@kahanit.com>
+ * @copyright 2015 Kahanit
+ * @license   http://creativecommons.org/licenses/by-nd/4.0/
+ */
+/* widths */
+/* awe menu */
+#awemenu {
+  position: relative;
+  margin: 15px 0;
+  /* main menu styles */
+}
+#awemenu *,
+#awemenu *:before,
+#awemenu *:after {
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#awemenu .am-tabs {
+  position: relative;
+  /* youtube, vimeo, google map styles */
+}
+#awemenu .am-tabs a {
+  display: block;
+  padding: 16px 20px;
+  font-size: 13px;
+  line-height: 18px;
+}
+#awemenu .am-tabs a .fa {
+  margin-right: 3px;
+}
+#awemenu .am-tabs a .am-badge {
+  font-size: 9px;
+  line-height: 1em;
+  padding: 2px 4px;
+  position: relative;
+  top: -9px;
+}
+#awemenu .am-tabs > .am-sortable {
+  float: left;
+}
+#awemenu .am-tabs .am-tab {
+  float: left;
+}
+#awemenu .am-tabs .am-tab > a {
+  position: relative;
+}
+#awemenu .am-tabs .am-tab .am-dropdown {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  width: 100%;
+}
+#awemenu .am-tabs .am-tab .am-dropdown > .am-sortable {
+  float: left;
+  width: 100%;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row > .am-sortable {
+  float: left;
+  width: 100%;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column {
+  float: left;
+  position: relative;
+  min-width: 100px;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column .am-item {
+  position: relative;
+  clear: both;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column .am-link.am-title {
+  font-weight: bold;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column .am-link.am-title > a {
+  padding: 8px 20px;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column .am-link > a {
+  padding: 5px 20px;
+  line-height: 1.5em;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column .am-html .am-item-pad {
+  padding: 5px 20px;
+}
+#awemenu .am-tabs .am-tab.am-tab-hover > .am-dropdown {
+  display: block;
+}
+#awemenu .am-tabs .am-tab-home {
+  display: none;
+}
+#awemenu .am-tabs .am-tab-home:before {
+  display: none !important;
+}
+#awemenu .am-tabs .am-tab-home > a .fa {
+  float: right;
+  margin-top: 3px;
+}
+#awemenu .am-tabs .am-tab-dropdown-full-width > .am-dropdown {
+  width: 100%;
+  left: 0;
+}
+#awemenu .am-tabs .am-tab-dropdown-parent-left {
+  position: relative;
+}
+#awemenu .am-tabs .am-tab-dropdown-parent-left > .am-dropdown {
+  left: 0;
+}
+#awemenu .am-tabs .am-tab-dropdown-parent-right {
+  position: relative;
+}
+#awemenu .am-tabs .am-tab-dropdown-parent-right > .am-dropdown {
+  left: auto;
+  right: 0;
+}
+#awemenu .am-tabs .am-tab-dropdown-parent-center {
+  position: relative;
+}
+#awemenu .am-tabs .am-tab-dropdown-menu-left > .am-dropdown {
+  width: auto;
+  left: 0;
+}
+#awemenu .am-tabs .am-tab-dropdown-menu-right > .am-dropdown {
+  width: auto;
+  left: auto;
+  right: 0;
+}
+#awemenu .am-tabs.am-tabs-root {
+  height: 51px;
+}
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab > .am-dropdown {
+  box-sizing: content-box;
+  margin-left: -1px;
+}
+#awemenu .am-tabs.am-tabs-horizontal {
+  height: auto;
+  float: left;
+  width: 100%;
+}
+#awemenu .am-tabs.am-tabs-horizontal > .am-sortable > .am-tab > a {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+#awemenu .am-tabs.am-tabs-vertical {
+  height: auto;
+  float: left;
+  width: 100%;
+}
+#awemenu .am-tabs.am-tabs-vertical > .am-sortable {
+  float: left;
+  width: 20%;
+}
+#awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab {
+  float: left;
+  width: 100%;
+  clear: both;
+}
+#awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab > a {
+  float: left;
+  width: 100%;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+#awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab > .am-dropdown {
+  position: absolute;
+  width: 80%;
+  top: 0;
+  left: 20%;
+}
+#awemenu .am-tabs.am-tabs-accordion {
+  height: auto;
+  float: left;
+  width: 100%;
+}
+#awemenu .am-tabs.am-tabs-accordion > .am-sortable {
+  width: 100%;
+}
+#awemenu .am-tabs.am-tabs-accordion > .am-sortable > .am-tab {
+  width: 100%;
+}
+#awemenu .am-tabs.am-tabs-accordion > .am-sortable > .am-tab > a {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+#awemenu .am-tabs.am-tabs-accordion > .am-sortable > .am-tab > .am-dropdown {
+  box-sizing: border-box;
+  position: static;
+  float: left;
+  width: 100%;
+}
+#awemenu .am-tabs .am-youtube .am-item-pad,
+#awemenu .am-tabs .am-vimeo .am-item-pad,
+#awemenu .am-tabs .am-googlemap .am-item-pad {
+  width: 100%;
+  height: 100%;
+}
+#awemenu .am-tabs .am-youtube .am-item-pad .am-googlemap-container,
+#awemenu .am-tabs .am-vimeo .am-item-pad .am-googlemap-container,
+#awemenu .am-tabs .am-googlemap .am-item-pad .am-googlemap-container,
+#awemenu .am-tabs .am-youtube .am-item-pad iframe,
+#awemenu .am-tabs .am-vimeo .am-item-pad iframe,
+#awemenu .am-tabs .am-googlemap .am-item-pad iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

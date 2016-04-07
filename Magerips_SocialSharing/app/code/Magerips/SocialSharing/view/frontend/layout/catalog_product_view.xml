@@ -1,0 +1,11 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	<head>
+		<script src="Magerips_SocialSharing::js/whatsapp-button.js"/>
+		<css src="Magerips_SocialSharing::css/styles.css"/>
+    </head>
+	<body>
+		<referenceContainer name="page.main.title">
+			 <block class="Magerips\SocialSharing\Block\SocialSharing" name="socialsharing" template="socialsharing.phtml" />
+		</referenceContainer>
+	</body>
+</page>

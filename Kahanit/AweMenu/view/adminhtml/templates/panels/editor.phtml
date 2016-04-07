@@ -1,0 +1,313 @@
+<div id="am-editor-panel" class="panel panel-default">
+    <div class="panel-heading">
+        <img src="<?= $block->getViewFileUrl('Kahanit_AweMenu/images/menu-icon.png'); ?>"/> <span>Editor</span>
+    </div>
+    <div class="panel-body">
+        <!-- menu editor toolbar -->
+        <div id="am-editor-toolbar" class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div id="am-editor-revision" class="input-group">
+                            <span class="input-group-addon">Revision: #</span>
+                            <input id="am-editor-revision-hidden" type="text" name="am-editor-revision-hidden" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div id="am-editor-title" class="input-group">
+                            <span class="input-group-addon">Title:</span>
+                            <input id="am-editor-title-text" type="text" name="am-editor-title-text" class="form-control" placeholder="Title">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="btn-group">
+                    <div id="am-editor-view" class="btn btn-default active">Live View</div>
+                    <div id="am-editor-save" class="btn btn-default">Save</div>
+                    <div id="am-editor-live" class="btn btn-default">Make Live!</div>
+                    <div id="am-editor-save-live" class="btn btn-default">Save & Make Live!</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- menu editor -->
+        <div id="awemenu">
+            <div id="am-editor"></div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- menu editor theme -->
+        <div id="am-editor-theme-panel" class="panel panel-default">
+            <div class="panel-heading">
+                <img src="<?= $block->getViewFileUrl('Kahanit_AweMenu/images/themes-icon.png'); ?>"/> <span>Theme</span>
+            </div>
+            <div class="panel-body">
+                <!-- theme editor -->
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            <label>Themes</label>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="am-themes">
+                                        <div class="am-theme" data-config='{"mb-topclr":"3d3d3d","mb-btmclr":"212121","mb-txtclr":"ffffff","mb-hvr-topclr":"212121","mb-hvr-btmclr":"212121","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"212121","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"017E7E","mb-btmclr":"014747","mb-txtclr":"ffffff","mb-hvr-topclr":"014747","mb-hvr-btmclr":"014747","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"014747","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"757500","mb-btmclr":"4d4d00","mb-txtclr":"ffffff","mb-hvr-topclr":"4d4d00","mb-hvr-btmclr":"4d4d00","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"4d4d00","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"9B4E00","mb-btmclr":"753b00","mb-txtclr":"ffffff","mb-hvr-topclr":"753b00","mb-hvr-btmclr":"753b00","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"753b00","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"B30051","mb-btmclr":"8a003f","mb-txtclr":"ffffff","mb-hvr-topclr":"8a003f","mb-hvr-btmclr":"8a003f","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"8a003f","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"46AD34","mb-btmclr":"317525","mb-txtclr":"ffffff","mb-hvr-topclr":"317525","mb-hvr-btmclr":"317525","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"317525","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"6F0E51","mb-btmclr":"4f0a3a","mb-txtclr":"ffffff","mb-hvr-topclr":"4f0a3a","mb-hvr-btmclr":"4f0a3a","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"4f0a3a","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"948C75","mb-btmclr":"736d5c","mb-txtclr":"ffffff","mb-hvr-topclr":"736d5c","mb-hvr-btmclr":"736d5c","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"736d5c","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"9C0000","mb-btmclr":"750202","mb-txtclr":"ffffff","mb-hvr-topclr":"750202","mb-hvr-btmclr":"750202","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"750202","dd-bdrclr":"cccccc"}'></div>
+                                        <div class="am-theme" data-config='{"mb-topclr":"0B486B","mb-btmclr":"08334d","mb-txtclr":"ffffff","mb-hvr-topclr":"08334d","mb-hvr-btmclr":"08334d","mb-hvr-txtclr":"ffffff","mb-bdrclr":"000000","dd-topclr":"ffffff","dd-btmclr":"ffffff","dd-txtclr":"000000","dd-ttlclr":"08334d","dd-bdrclr":"cccccc"}'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Menu bar background top/bottom/text color</label>
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div id="am-editor-theme-mb-topclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-mb-topclr" type="text" name="am-editor-theme-mb-topclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div id="am-editor-theme-mb-btmclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-mb-btmclr" type="text" name="am-editor-theme-mb-btmclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div id="am-editor-theme-mb-txtclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-mb-txtclr" type="text" name="am-editor-theme-mb-txtclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Menu bar hover background top/bottom/text color</label>
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div id="am-editor-theme-mb-hvr-topclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-mb-hvr-topclr" type="text" name="am-editor-theme-mb-hvr-topclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div id="am-editor-theme-mb-hvr-btmclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-mb-hvr-btmclr" type="text" name="am-editor-theme-mb-hvr-btmclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div id="am-editor-theme-mb-hvr-txtclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-mb-hvr-txtclr" type="text" name="am-editor-theme-mb-hvr-txtclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Menu bar border color</label>
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div id="am-editor-theme-mb-bdrclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-mb-bdrclr" type="text" name="am-editor-theme-mb-bdrclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Dropdown background top/bottom/text/title color</label>
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div id="am-editor-theme-dd-topclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-dd-topclr" type="text" name="am-editor-theme-dd-topclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div id="am-editor-theme-dd-btmclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-dd-btmclr" type="text" name="am-editor-theme-dd-btmclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div id="am-editor-theme-dd-txtclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-dd-txtclr" type="text" name="am-editor-theme-dd-txtclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div id="am-editor-theme-dd-ttlclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-dd-ttlclr" type="text" name="am-editor-theme-dd-ttlclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Dropdown border color</label>
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div id="am-editor-theme-dd-bdrclr-pkr" class="input-group am-colorpicker">
+                                        <span class="input-group-addon"><i></i></span>
+                                        <input id="am-editor-theme-dd-bdrclr" type="text" name="am-editor-theme-dd-bdrclr" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <label>Custom CSS:</label>
+
+                        <div id="am-css-editor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="loading"></div>
+    </div>
+</div>
+<div id="am-elements">
+    {{#each items}}
+    {{#ifCond xtype "==" "tab"}}
+    <div class="am-tab" data-xtype="{{xtype}}" data-config="{{{config config}}}" data-content="+">
+        <a href="#" onclick="return false;">
+            <span class="am-tab-text">{{{config.text.lang_id_0}}}</span>
+            <span title="add tab before" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-tab-before">&nbsp;</span>
+            <span title="edit tab" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-tab">&nbsp;</span>
+            <span title="delete tab" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-tab">&nbsp;</span>
+            <span title="move tab" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-tab">&nbsp;</span>
+        </a>
+
+        <div class="am-dropdown">
+            <div class="am-sortable am-sortable-y am-sortable-rows">
+                {{#if items}}
+                {{> sourcetpl}}
+                {{/if}}
+            </div>
+            <span title="add row" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-row-after">&nbsp;</span>
+        </div>
+    </div>
+    {{/ifCond}}
+    {{#ifCond xtype "==" "row"}}
+    <div class="am-row" data-xtype="{{xtype}}" data-config="{{{config config}}}">
+        <div class="am-sortable am-sortable-x am-sortable-columns">
+            {{#if items}}
+            {{> sourcetpl}}
+            {{/if}}
+        </div>
+        <span title="add column" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-column-after">&nbsp;</span>
+        <span title="add row above" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-row-before">&nbsp;</span>
+        <span title="edit row" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-row">&nbsp;</span>
+        <span title="delete row" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-row">&nbsp;</span>
+        <span title="move row" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-row">&nbsp;</span>
+    </div>
+    {{/ifCond}}
+    {{#ifCond xtype "==" "column"}}
+    <div class="am-column" data-xtype="{{xtype}}" data-config="{{{config config}}}">
+        <div class="am-sortable am-sortable-y am-sortable-items">
+            {{#if items}}
+            {{> sourcetpl}}
+            {{/if}}
+        </div>
+        <span title="add item" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-item-after">&nbsp;</span>
+        <span title="add column before" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-column-before">&nbsp;</span>
+        <span title="edit column" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-column">&nbsp;</span>
+        <span title="delete column" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-column">&nbsp;</span>
+        <span title="move column" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-column">&nbsp;</span>
+    </div>
+    {{/ifCond}}
+    {{#ifCond xtype "==" "tabs"}}
+    <div class="am-item am-tabs am-tabs-{{config.layout}}" data-xtype="{{xtype}}" data-config="{{{config config}}}">
+        <div class="am-sortable am-sortable-x am-sortable-tabs">
+            {{#ifCond config.layout "==" "root"}}
+            <div class="am-tab am-tab-home" data-content="+">
+                <a href="#" onclick="return false;">
+                    <i class="fa fa-bars"></i>
+                    Menu
+                </a>
+            </div>
+            {{/ifCond}}
+            {{#if items}}
+            {{> sourcetpl}}
+            {{/if}}
+        </div>
+        <span title="add tab" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-tab-after">&nbsp;</span>
+        <span title="add item above" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-item-before">&nbsp;</span>
+        <span title="edit item" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-item">&nbsp;</span>
+        <span title="delete item" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-item">&nbsp;</span>
+        <span title="move item" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-item">&nbsp;</span>
+    </div>
+    {{/ifCond}}
+    {{#ifCond xtype "==" "link"}}
+    <div class="am-item am-link" data-xtype="{{xtype}}" data-config="{{{config config}}}">
+        <a href="#" onclick="return false;">
+            <span class="am-link-text">{{{config.text.lang_id_0}}}</span>
+        </a>
+        <span title="add item above" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-item-before">&nbsp;</span>
+        <span title="edit item" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-item">&nbsp;</span>
+        <span title="delete item" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-item">&nbsp;</span>
+        <span title="move item" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-item">&nbsp;</span>
+    </div>
+    {{/ifCond}}
+    {{#ifCond xtype "==" "html"}}
+    <div class="am-item am-html" data-xtype="{{xtype}}" data-config="{{{config config}}}">
+        <div class="am-item-pad">{{{config.content.lang_id_0}}}
+        </div>
+        <span title="add item above" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-item-before">&nbsp;</span>
+        <span title="edit item" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-item">&nbsp;</span>
+        <span title="delete item" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-item">&nbsp;</span>
+        <span title="move item" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-item">&nbsp;</span>
+    </div>
+    {{/ifCond}}
+    {{#ifCond xtype "==" "youtube"}}
+    <div class="am-item am-youtube {{config.class}}" data-xtype="{{xtype}}" data-config="{{{config config}}}">
+        <div class="am-item-pad">
+            <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <span title="add item above" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-item-before">&nbsp;</span>
+        <span title="edit item" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-item">&nbsp;</span>
+        <span title="delete item" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-item">&nbsp;</span>
+        <span title="move item" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-item">&nbsp;</span>
+    </div>
+    {{/ifCond}}
+    {{#ifCond xtype "==" "vimeo"}}
+    <div class="am-item am-vimeo {{config.class}}" data-xtype="{{xtype}}" data-config="{{{config config}}}">
+        <div class="am-item-pad">
+            <iframe width="100%" height="100%" src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        <span title="add item above" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-item-before">&nbsp;</span>
+        <span title="edit item" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-item">&nbsp;</span>
+        <span title="delete item" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-item">&nbsp;</span>
+        <span title="move item" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-item">&nbsp;</span>
+    </div>
+    {{/ifCond}}
+    {{#ifCond xtype "==" "googlemap"}}
+    <div class="am-item am-googlemap" data-xtype="{{xtype}}" data-config="{{{config config}}}">
+        <div class="am-item-pad">
+            <div class="am-googlemap-container"
+                 data-lat="{{config.latitude}}"
+                 data-lng="{{config.longitude}}"
+                 data-zoom="{{config.zoom}}"></div>
+        </div>
+        <span title="add item above" data-toggle="tooltip" data-placement="top" class="am-button am-button-add am-button-add-item-before">&nbsp;</span>
+        <span title="edit item" data-toggle="tooltip" data-placement="top" class="am-button am-button-edit am-button-edit-item">&nbsp;</span>
+        <span title="delete item" data-toggle="tooltip" data-placement="top" class="am-button am-button-delete am-button-delete-item">&nbsp;</span>
+        <span title="move item" data-toggle="tooltip" data-placement="top" class="am-button am-button-move am-button-move-item">&nbsp;</span>
+    </div>
+    {{/ifCond}}
+    {{/each}}
+</div>

@@ -1,0 +1,394 @@
+/**
+ * Easily manage navigation with Kahanit Awe Menu
+ *
+ * Kahanit Awe Menu by Kahanit(http://www.kahanit.com) is licensed under a
+ * Creative Creative Commons Attribution-NoDerivatives 4.0 International License.
+ * Based on a work at http://www.kahanit.com.
+ * Permissions beyond the scope of this license may be available at http://www.kahanit.com.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nd/4.0/.
+ *
+ * @author    Amit Sidhpura <amit@kahanit.com>
+ * @copyright 2015 Kahanit
+ * @license   http://creativecommons.org/licenses/by-nd/4.0/
+ */
+/* menu bar colors */
+#am-builder {
+  min-height: 2000px;
+  margin: 0;
+  /* override bootstrap styles */
+  /* common elements */
+  /* editor panel styles */
+  /* modal styles */
+  /* override datatable styles  */
+  /* override fancytree styles */
+  /* revisions panel styles */
+  /* add, edit, delete button styles */
+  /* main menu styles */
+}
+#am-builder .loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+  opacity: 0.5;
+  z-index: 11;
+}
+#am-builder .panel .panel-heading * {
+  vertical-align: middle;
+}
+#am-builder .am-translatable-field {
+  display: none;
+}
+#am-builder .am-translatable-field.am-translatable-field-active {
+  display: table;
+}
+#am-builder .am-translatable-field .input-group-btn {
+  vertical-align: top;
+}
+#am-builder .am-translatable-field .input-group-btn .dropdown-toggle {
+  width: 50px;
+}
+#am-builder .am-translatable-field .input-group-btn .dropdown-menu {
+  top: auto;
+}
+#am-builder .dropdown-align {
+  margin-bottom: 15px;
+}
+#am-builder .dropdown-align img {
+  border: 1px solid #eee;
+  width: 100%;
+  padding: 2px;
+  cursor: pointer;
+}
+#am-builder .dropdown-align.checked img {
+  border: 1px solid #00aff0;
+  -webkit-box-shadow: 0 0 1px 0 #00aff0;
+  -moz-box-shadow: 0 0 1px 0 #00aff0;
+  box-shadow: 0 0 1px 0 #00aff0;
+}
+#am-builder .dropdown-align span {
+  display: block;
+  text-align: center;
+}
+#am-builder #am-editor-panel #awemenu {
+  margin: 15px 0;
+  padding: 0;
+}
+#am-builder #am-editor-panel #am-editor {
+  position: relative;
+  z-index: 11;
+}
+#am-builder #am-editor-panel #am-themes {
+  overflow: hidden;
+}
+#am-builder #am-editor-panel #am-themes .am-theme {
+  float: left;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+  background: #dddddd;
+  border: 1px solid #bbbbbb;
+  cursor: pointer;
+}
+#am-builder #am-editor-panel #am-css-editor {
+  border: 1px solid #ccc;
+}
+#am-builder #am-item-configuration #customlink-form-configuration {
+  padding: 0 16px 15px;
+}
+#am-builder #am-item-configuration #link-table-table .link-table-table-link,
+#am-builder #am-item-configuration #link-tree-table .link-tree-table-link {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: transparent url('../images/link-icon.png') no-repeat left top;
+}
+#am-builder #am-item-configuration .item-configuration,
+#am-builder #am-item-configuration #link-configuration,
+#am-builder #am-item-configuration #dropdown-configuration {
+  display: none;
+  padding-bottom: 15px;
+}
+#am-builder #am-item-configuration .item-configuration .form-group:last-of-type,
+#am-builder #am-item-configuration #link-configuration .form-group:last-of-type,
+#am-builder #am-item-configuration #dropdown-configuration .form-group:last-of-type,
+#am-builder #am-item-configuration .item-configuration .panel,
+#am-builder #am-item-configuration #link-configuration .panel,
+#am-builder #am-item-configuration #dropdown-configuration .panel {
+  margin-bottom: 0;
+}
+#am-builder #am-item-configuration .item-configuration .form-inline .form-group,
+#am-builder #am-item-configuration #link-configuration .form-inline .form-group,
+#am-builder #am-item-configuration #dropdown-configuration .form-inline .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+#am-builder #am-elements {
+  display: none;
+}
+#am-builder .dataTables_wrapper .row:first-child {
+  display: none;
+}
+#am-builder .dataTables_wrapper table.dataTable {
+  margin: 0 !important;
+}
+#am-builder .dataTables_wrapper table.dataTable thead th,
+#am-builder .dataTables_wrapper table.dataTable thead td {
+  padding: 8px;
+}
+#am-builder .dataTables_wrapper table.dataTable tbody th,
+#am-builder .dataTables_wrapper table.dataTable tbody td {
+  padding: 8px;
+}
+#am-builder .dataTables_wrapper tbody tr {
+  cursor: pointer;
+}
+#am-builder .dataTables_wrapper tbody tr.selected td {
+  background: #eeeeee;
+}
+#am-builder .dataTables_wrapper .dataTables_paginate .paginate_button {
+  margin-left: 0;
+  padding: 0;
+  border: none !important;
+}
+#am-builder .fancytree-container tbody tr.fancytree-selected td,
+#am-builder .fancytree-container tbody tr.fancytree-active td,
+#am-builder .fancytree-container tbody tr.fancytree-selected span.fancytree-node,
+#am-builder .fancytree-container tbody tr.fancytree-selected span.fancytree-title,
+#am-builder .fancytree-container tbody tr.fancytree-active span.fancytree-node {
+  background: #eeeeee;
+}
+#am-builder #am-revisions-panel #am-revisions-table .am-in-editor td {
+  background: #f9e7ae;
+}
+#am-builder #am-revisions-panel #am-revisions-table .am-is-live td {
+  background: #daefda;
+}
+#am-builder #am-revisions-panel #am-revisions-table .am-revision-edit,
+#am-builder #am-revisions-panel #am-revisions-table .am-revision-live,
+#am-builder #am-revisions-panel #am-revisions-table .am-revision-delete {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+#am-builder #am-revisions-panel #am-revisions-table .am-revision-edit {
+  background: transparent url('../images/edit-icon.png') no-repeat left top;
+}
+#am-builder #am-revisions-panel #am-revisions-table .am-revision-live {
+  background: transparent url('../images/live-icon.png') no-repeat left top;
+}
+#am-builder #am-revisions-panel #am-revisions-table .am-revision-delete {
+  background: transparent url('../images/delete-icon.png') no-repeat left top;
+}
+#am-builder #am-editor > .am-tabs > .am-button {
+  display: none;
+}
+#am-builder #am-editor > .am-tabs > .am-button-add-tab-after {
+  display: block;
+}
+#am-builder .am-tabs .am-tab .am-dropdown .am-row .am-sortable-columns {
+  min-height: 50px;
+}
+#am-builder .am-tabs .am-tab .am-dropdown .am-row .am-sortable-columns .am-column .am-sortable-items {
+  min-height: 50px;
+}
+#am-builder .am-tabs-editor-view .am-dropdown {
+  background: #ffffff;
+}
+#am-builder .am-tabs-editor-view .am-dropdown .am-row {
+  padding: 18px 9px;
+  background: #e8e8e8;
+  border: 9px solid #ffffff;
+  border-bottom: none;
+}
+#am-builder .am-tabs-editor-view .am-dropdown .am-row:last-child {
+  margin-bottom: 3px;
+}
+#am-builder .am-tabs-editor-view .am-dropdown .am-row .am-column {
+  padding: 18px 9px;
+  background: #ffffff;
+  border-left: 3px solid #e8e8e8;
+}
+#am-builder .am-tabs-editor-view .am-dropdown .am-row .am-column:first-child {
+  border-left: none;
+}
+#am-builder .am-tabs-editor-view .am-dropdown .am-row .am-column .am-item {
+  margin-bottom: 3px;
+  background: #e8e8e8;
+}
+#am-builder .am-tabs-editor-view .am-dropdown .am-row .am-column .am-item.am-tabs {
+  border-width: 18px 9px;
+  border-color: #e8e8e8;
+  border-style: solid;
+}
+#am-builder .module-text {
+  text-align: right;
+}
+#am-builder .am-button {
+  background: url('../images/sprite.png') -16px -116px no-repeat #ffffff;
+  height: 18px;
+  width: 18px;
+  border-radius: 9px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  text-indent: -9999px;
+  display: none;
+  cursor: pointer;
+  z-index: 1;
+}
+#am-builder .am-tabs-live-view .am-button {
+  display: none !important;
+}
+#am-builder .am-tab:hover > a > .am-button,
+#am-builder .am-row:hover > .am-button,
+#am-builder .am-column:hover > .am-button,
+#am-builder .am-item:hover > .am-button {
+  display: block;
+}
+#am-builder .am-button-add-row-after {
+  margin-top: 3px;
+}
+#am-builder .am-button-add {
+  background-position: -16px -116px;
+}
+#am-builder .am-button-add:hover {
+  background-position: -16px -166px;
+}
+#am-builder .am-button-edit {
+  background-position: -16px -216px;
+}
+#am-builder .am-button-edit:hover {
+  background-position: -16px -266px;
+}
+#am-builder .am-button-delete {
+  background-position: -66px -116px;
+}
+#am-builder .am-button-delete:hover {
+  background-position: -66px -166px;
+}
+#am-builder .am-button-move {
+  background-position: -16px -316px;
+  cursor: move;
+}
+#am-builder .am-button-move:hover {
+  background-position: -16px -366px;
+}
+#am-builder .am-tab > a > .am-button {
+  position: absolute;
+  top: -9px;
+}
+#am-builder .am-tab > a > .am-button-add-tab-before {
+  left: -9px;
+}
+#am-builder .am-tab > a > .am-button-edit-tab {
+  left: 10px;
+}
+#am-builder .am-tab > a > .am-button-delete-tab {
+  left: 29px;
+}
+#am-builder .am-tab > a > .am-button-move-tab {
+  left: 48px;
+}
+#am-builder .am-row > .am-button {
+  position: absolute;
+  top: -9px;
+}
+#am-builder .am-row > .am-button-add-row-before {
+  left: -9px;
+}
+#am-builder .am-row > .am-button-edit-row {
+  left: 10px;
+}
+#am-builder .am-row > .am-button-delete-row {
+  left: 29px;
+}
+#am-builder .am-row > .am-button-move-row {
+  left: 48px;
+}
+#am-builder .am-column > .am-button {
+  position: absolute;
+  top: -9px;
+}
+#am-builder .am-column > .am-button-add-column-before {
+  left: -9px;
+}
+#am-builder .am-column > .am-button-edit-column {
+  left: 10px;
+}
+#am-builder .am-column > .am-button-delete-column {
+  left: 29px;
+}
+#am-builder .am-column > .am-button-move-column {
+  left: 48px;
+}
+#am-builder .am-item > .am-button {
+  position: absolute;
+  top: -9px;
+}
+#am-builder .am-item > .am-button-add-item-before {
+  left: -9px;
+}
+#am-builder .am-item > .am-button-edit-item {
+  left: 9px;
+}
+#am-builder .am-item > .am-button-delete-item {
+  left: 29px;
+}
+#am-builder .am-item > .am-button-move-item {
+  left: 48px;
+}
+#am-builder .am-item.am-tabs > .am-button {
+  position: absolute;
+  top: -27px;
+}
+#am-builder .am-item.am-tabs > .am-button-add-item-before {
+  left: -18px;
+}
+#am-builder .am-item.am-tabs > .am-button-edit-item {
+  left: 1px;
+}
+#am-builder .am-item.am-tabs > .am-button-delete-item {
+  left: 20px;
+}
+#am-builder .am-item.am-tabs > .am-button-move-item {
+  left: 39px;
+}
+#am-builder .am-tabs > .am-button {
+  z-index: 3;
+}
+#am-builder .am-tabs .am-button-add-tab-after,
+#am-builder .am-tab .am-button-add-row-after,
+#am-builder .am-row .am-button-add-column-after,
+#am-builder .am-column .am-button-add-item-after {
+  display: block;
+  position: absolute;
+}
+#am-builder .am-tabs .am-button-add-tab-after {
+  position: static !important;
+  float: left;
+  clear: none;
+  margin: 16px 10px;
+}
+#am-builder .am-tabs-vertical .am-button-add-tab-after {
+  clear: both;
+}
+#am-builder .am-tabs-horizontal .am-button-add-tab-after {
+  margin: 13px 10px;
+}
+#am-builder .am-tab .am-button-add-row-after {
+  position: static !important;
+  clear: both;
+  margin: 0 auto 3px;
+}
+#am-builder .am-row .am-button-add-column-after {
+  top: 50%;
+  margin-top: -9px;
+  right: 0;
+}
+#am-builder .am-column .am-button-add-item-after {
+  top: auto;
+  bottom: 3px;
+  right: 50%;
+  margin-right: -9px;
+}

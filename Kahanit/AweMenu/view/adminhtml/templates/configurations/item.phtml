@@ -1,0 +1,581 @@
+<div id="am-item-configuration">
+    <div class="modal fade" id="am-item-configuration-modal" role="dialog" aria-labelledby="am-item-configuration-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="am-item-configuration-modal-label">Items Configuration</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <select id="am-select-item" class="form-control">
+                                    <option>-- Select Item --</option>
+                                    {{#each entities}}
+                                    <option data-xtype="link" data-entity="{{entity}}" data-format="{{format}}">{{name}}</option>
+                                    {{/each}}
+                                    <option data-xtype="link" data-entity="custom" data-format="form">Custom Link</option>
+
+                                    <option data-xtype="tabs" data-layout="horizontal">Horizontal Tabs</option>
+                                    <option data-xtype="tabs" data-layout="vertical">Vertical Tabs</option>
+                                    <option data-xtype="tabs" data-layout="accordion">Accordion</option>
+
+                                    <option data-xtype="html">HTML Block</option>
+                                    <option data-xtype="youtube">Youtube Video</option>
+                                    <option data-xtype="vimeo">Vimeo Video</option>
+                                    <option data-xtype="googlemap">Google Map</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="link-table-configuration" class="item-configuration">
+                            <div class="form-inline toolbar">
+                                <div class="btn-group">
+                                    <input id="link-table-reload" type="button" value="Reload" class="btn btn-default">
+                                    <input id="link-table-select" type="button" value="Select All" class="btn btn-default">
+                                    <input id="link-table-deselect" type="button" value="Deselect All" class="btn btn-default">
+                                </div>
+                                <div class="form-group pull-right">
+                                    &nbsp;<input id="link-table-search" type="text" name="link-table-search" class="form-control" placeholder="Search..." size="40">
+                                </div>
+                                <div class="form-group pull-right">
+                                    <label for="link-table-length">Page Size:</label>
+                                    <input id="link-table-length" type="text" name="link-table-length" class="form-control" value="25" size="3">
+                                </div>
+                            </div>
+                            <table id="link-table-table" class="table table-hover fancytree-container fancytree-ext-table fancytree-ext-glyph">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Text</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div id="link-tree-configuration" class="item-configuration">
+                            <div class="form-inline toolbar">
+                                <div class="btn-group">
+                                    <input id="link-tree-reload" type="button" value="Reload" class="btn btn-default">
+                                    <input id="link-tree-select" type="button" value="Select All" class="btn btn-default">
+                                    <input id="link-tree-deselect" type="button" value="Deselect All" class="btn btn-default">
+                                    <input id="link-tree-expand" type="button" value="Expand All" class="btn btn-default">
+                                    <input id="link-tree-collapse" type="button" value="Collapse All" class="btn btn-default">
+                                </div>
+                                <div class="form-group pull-right">
+                                    <input id="link-tree-search" type="text" name="link-tree-search" class="form-control" placeholder="Search..." size="40">
+                                </div>
+                            </div>
+                            <table id="link-tree-table" class="table table-hover fancytree-container fancytree-ext-table fancytree-ext-glyph">
+                                <thead>
+                                <tr>
+                                    <th width="44"></th>
+                                    <th width="72">ID</th>
+                                    <th>Text</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="noresultfound">
+                                    <td colspan="4">No data available in table</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="link-form-configuration" class="item-configuration">
+                            <div class="form-group">
+                                <label class="control-label col-lg-3">Text</label>
+
+                                <div class="col-lg-9">
+                                    <input type="text" name="link-form-text[{{langs.0.id}}]" class="form-control link-form-text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-lg-3">URL</label>
+
+                                <div class="col-lg-9">
+                                    <input type="text" name="link-form-url[{{langs.0.id}}]" class="form-control link-form-url">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tabs-horizontal-configuration" class="item-configuration">
+                            <div class="form-group">
+                                <label for="tabs-horizontal-width" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `%%` or `px` for example 97%% or 97px">Width</span></label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-horizontal-width" type="text" name="tabs-horizontal-width" class="form-control tabs-horizontal-width" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tabs-horizontal-height" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `px` for example 97px">Height</span></label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-horizontal-height" type="text" name="tabs-horizontal-height" class="form-control tabs-horizontal-height" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tabs-horizontal-class" class="control-label col-lg-3">Class</label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-horizontal-class" type="text" name="tabs-horizontal-class" class="form-control tabs-horizontal-class" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabs-vertical-configuration" class="item-configuration">
+                            <div class="form-group">
+                                <label for="tabs-vertical-width" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `%%` or `px` for example 97%% or 97px">Width</span></label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-vertical-width" type="text" name="tabs-vertical-width" class="form-control tabs-vertical-width" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tabs-vertical-height" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `px` for example 97px">Height</span></label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-vertical-height" type="text" name="tabs-vertical-height" class="form-control tabs-vertical-height" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tabs-vertical-class" class="control-label col-lg-3">Class</label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-vertical-class" type="text" name="tabs-vertical-class" class="form-control tabs-vertical-class" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabs-accordion-configuration" class="item-configuration">
+                            <div class="form-group">
+                                <label for="tabs-accordion-width" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `%%` or `px` for example 97%% or 97px">Width</span></label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-accordion-width" type="text" name="tabs-accordion-width" class="form-control tabs-accordion-width" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tabs-accordion-height" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `px` for example 97px">Height</span></label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-accordion-height" type="text" name="tabs-accordion-height" class="form-control tabs-accordion-height" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tabs-accordion-class" class="control-label col-lg-3">Class</label>
+
+                                <div class="col-lg-9">
+                                    <input id="tabs-accordion-class" type="text" name="tabs-accordion-class" class="form-control tabs-accordion-class" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="html-configuration" class="item-configuration">
+                            <div class="form-group">
+                                <label class="control-label col-lg-3">Content</label>
+
+                                <div class="col-lg-9">
+                                    <textarea id="html-content-0" name="html-content[{{langs.0.id}}]" class="form-control html-content am-htmleditor" rows="8"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="html-width" class="control-label col-lg-3">Width</label>
+
+                                <div class="col-lg-9">
+                                    <input id="html-width" type="text" name="html-width" class="form-control html-width" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="html-height" class="control-label col-lg-3">Height</label>
+
+                                <div class="col-lg-9">
+                                    <input id="html-height" type="text" name="html-height" class="form-control html-height" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="html-class" class="control-label col-lg-3">Class</label>
+
+                                <div class="col-lg-9">
+                                    <input id="html-class" type="text" name="html-class" class="form-control html-class" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="youtube-configuration" class="item-configuration">
+                            <div class="form-group">
+                                <label for="youtube-video" class="control-label col-lg-3">Video</label>
+
+                                <div class="col-lg-9">
+                                    <input id="youtube-video" type="text" name="youtube-video" class="form-control youtube-video" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="youtube-width" class="control-label col-lg-3">Width</label>
+
+                                <div class="col-lg-9">
+                                    <input id="youtube-width" type="text" name="youtube-width" class="form-control youtube-width" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="youtube-height" class="control-label col-lg-3">Height</label>
+
+                                <div class="col-lg-9">
+                                    <input id="youtube-height" type="text" name="youtube-height" class="form-control youtube-height" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="youtube-class" class="control-label col-lg-3">Class</label>
+
+                                <div class="col-lg-9">
+                                    <input id="youtube-class" type="text" name="youtube-class" class="form-control youtube-class" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="youtube-autoplay" name="youtube-autoplay" type="checkbox"> Autoplay this video
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="youtube-show-suggested" name="youtube-show-suggested" type="checkbox" checked> Show suggested videos when the video finishes
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="youtube-show-controls" name="youtube-show-controls" type="checkbox" checked> Show player controls
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="youtube-show-title-and-actions" name="youtube-show-title-and-actions" type="checkbox"> Show video title and player actions
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="youtube-enable-privacy-enh-mode" name="youtube-enable-privacy-enh-mode" type="checkbox"> Enable privacy-enhanced mode
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="vimeo-configuration" class="item-configuration">
+                            <div class="form-group">
+                                <label for="vimeo-video" class="control-label col-lg-3">Video</label>
+
+                                <div class="col-lg-9">
+                                    <input id="vimeo-video" type="text" name="vimeo-video" class="form-control vimeo-video" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="vimeo-width" class="control-label col-lg-3">Width</label>
+
+                                <div class="col-lg-9">
+                                    <input id="vimeo-width" type="text" name="vimeo-width" class="form-control vimeo-width" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="vimeo-height" class="control-label col-lg-3">Height</label>
+
+                                <div class="col-lg-9">
+                                    <input id="vimeo-height" type="text" name="vimeo-height" class="form-control vimeo-height" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="vimeo-class" class="control-label col-lg-3">Class</label>
+
+                                <div class="col-lg-9">
+                                    <input id="vimeo-class" type="text" name="vimeo-class" class="form-control vimeo-class" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="vimeo-color" class="control-label col-lg-3">Color</label>
+
+                                <div class="col-lg-9">
+                                    <input id="vimeo-color" type="text" name="vimeo-color" class="form-control vimeo-color" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="vimeo-autoplay" name="vimeo-autoplay" type="checkbox"> Autoplay this video
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="vimeo-loop" name="vimeo-loop" type="checkbox"> Loop this video
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="vimeo-show-portrait" name="vimeo-show-portrait" type="checkbox"> Intro portrait
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="vimeo-show-title" name="vimeo-show-title" type="checkbox"> Intro title
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="vimeo-show-byline" name="vimeo-show-byline" type="checkbox"> Intro byline
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="vimeo-show-badge" name="vimeo-show-badge" type="checkbox"> Staff picks badge
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="googlemap-configuration" class="item-configuration">
+                            <div class="form-group">
+                                <label for="googlemap-address" class="control-label col-lg-3">Address</label>
+
+                                <div class="col-lg-9">
+                                    <input id="googlemap-address" type="text" name="googlemap-address" class="form-control googlemap-width" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="googlemap-latitude" class="control-label col-lg-3">Latitude/Longitude</label>
+
+                                <div class="col-lg-4">
+                                    <input id="googlemap-latitude" type="text" name="googlemap-latitude" class="form-control googlemap-latitude" value="">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input id="googlemap-longitude" type="text" name="googlemap-longitude" class="form-control googlemap-longitude" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="googlemap-zoom" class="control-label col-lg-3">Zoom</label>
+
+                                <div class="col-lg-9">
+                                    <input id="googlemap-zoom" type="text" name="googlemap-zoom" class="form-control googlemap-zoom" value="15">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="googlemap-width" class="control-label col-lg-3">Width</label>
+
+                                <div class="col-lg-9">
+                                    <input id="googlemap-width" type="text" name="googlemap-width" class="form-control googlemap-width" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="googlemap-height" class="control-label col-lg-3">Height</label>
+
+                                <div class="col-lg-9">
+                                    <input id="googlemap-height" type="text" name="googlemap-height" class="form-control googlemap-height" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="googlemap-class" class="control-label col-lg-3">Class</label>
+
+                                <div class="col-lg-9">
+                                    <input id="googlemap-class" type="text" name="googlemap-class" class="form-control googlemap-class" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="link-configuration">
+                            <div class="panel panel-default panel-link-config">
+                                <div class="panel-heading">Links configuration</div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-3">Custom text</label>
+
+                                        <div class="col-lg-9">
+                                            <input type="text" name="link-custom-text[{{langs.0.id}}]" class="form-control link-custom-text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link-icon" class="control-label col-lg-3">Icon</label>
+
+                                        <div class="col-lg-9">
+                                            <div class="input-group">
+                                                <input id="link-icon" type="text" name="link-icon" class="form-control link-icon icp icp-auto am-iconpicker" data-placement="bottomRight" value="-">
+                                                <span class="input-group-addon"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link-target" class="control-label col-lg-3">Target</label>
+
+                                        <div class="col-lg-9">
+                                            <select id="link-target" name="link-target" class="form-control link-target">
+                                                <option value=""></option>
+                                                <option value="_blank">_blank</option>
+                                                <option value="_parent">_parent</option>
+                                                <option value="_self">_self</option>
+                                                <option value="_top">_top</option>
+                                                <option value="new">new</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link-color" class="control-label col-lg-3">Color</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="link-color" type="text" name="link-color" class="form-control link-color" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link-class" class="control-label col-lg-3">Class</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="link-class" type="text" name="link-class" class="form-control link-class" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link-background-color" class="control-label col-lg-3">Background color</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="link-background-color" type="text" name="link-background-color" class="form-control link-background-color" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link-font-size" class="control-label col-lg-3">Font size</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="link-font-size" type="text" name="link-font-size" class="form-control link-font-size" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-9">
+                                            <label class="checkbox-inline">
+                                                <input id="link-bold" type="checkbox" name="link-bold" class="link-bold" value="1">
+                                                <span>Bold</span> </label> <label class="checkbox-inline">
+                                                <input id="link-italic" type="checkbox" name="link-italic" class="link-italic" value="1">
+                                                <span>Italic</span> </label> <label class="checkbox-inline">
+                                                <input id="link-underline" type="checkbox" name="link-underline" class="link-underline" value="1">
+                                                <span>Underline</span> </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-3">Badge text</label>
+
+                                        <div class="col-lg-9">
+                                            <input type="text" name="link-badge-text[{{langs.0.id}}]" class="form-control link-badge-text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link-badge-color" class="control-label col-lg-3">Badge text color</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="link-badge-color" type="text" name="link-badge-color" class="form-control link-badge-color" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link-badge-background-color" class="control-label col-lg-3">Badge background color</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="link-badge-background-color" type="text" name="link-badge-background-color" class="form-control link-badge-background-color" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dropdown-configuration">
+                            <div class="panel panel-default panel-dropdown-config">
+                                <div class="panel-heading">Dropdown configurations</div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-3">Align</label>
+
+                                        <div class="col-lg-9 dropdown-align-container image-checkboxes">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 dropdown-align image-checkbox checked" data-dropdown-align="full-width">
+                                                    <img src="<?= $block->getViewFileUrl('Kahanit_AweMenu/images/full-width.png'); ?>" width="198" height="100"/>
+                                                    <span>Full Width</span>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 dropdown-align image-checkbox" data-dropdown-align="parent-left">
+                                                    <img src="<?= $block->getViewFileUrl('Kahanit_AweMenu/images/parent-left.png'); ?>" width="198" height="100"/>
+                                                    <span>Parent Left</span>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 dropdown-align image-checkbox" data-dropdown-align="parent-right">
+                                                    <img src="<?= $block->getViewFileUrl('Kahanit_AweMenu/images/parent-right.png'); ?>" width="198" height="100"/>
+                                                    <span>Parent Right</span>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 dropdown-align image-checkbox" data-dropdown-align="parent-center">
+                                                    <img src="<?= $block->getViewFileUrl('Kahanit_AweMenu/images/parent-center.png'); ?>" width="198" height="100"/>
+                                                    <span>Parent Center</span>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 dropdown-align image-checkbox" data-dropdown-align="menu-left">
+                                                    <img src="<?= $block->getViewFileUrl('Kahanit_AweMenu/images/menu-left.png'); ?>" width="198" height="100"/>
+                                                    <span>Menu Left</span>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 dropdown-align image-checkbox" data-dropdown-align="menu-right">
+                                                    <img src="<?= $block->getViewFileUrl('Kahanit_AweMenu/images/menu-right.png'); ?>" width="198" height="100"/>
+                                                    <span>Menu Right</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dropdown-width" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `%%` or `px` for example 97%% or 97px">Width</span></label>
+
+                                        <div class="col-lg-9">
+                                            <input id="dropdown-width" type="text" name="dropdown-width" class="form-control dropdown-width" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dropdown-height" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `px` for example 97px">Height</span></label>
+
+                                        <div class="col-lg-9">
+                                            <input id="dropdown-height" type="text" name="dropdown-height" class="form-control dropdown-height" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dropdown-class" class="control-label col-lg-3">Class</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="dropdown-class" type="text" name="dropdown-class" class="form-control dropdown-class" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dropdown-background-color" class="control-label col-lg-3">Background color</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="dropdown-background-color" type="text" name="dropdown-background-color" class="form-control dropdown-background-color" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dropdown-background-image" class="control-label col-lg-3">Background image</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="dropdown-background-image" type="text" name="dropdown-background-image" class="form-control dropdown-background-image" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dropdown-background-repeat" class="control-label col-lg-3">Background repeat</label>
+
+                                        <div class="col-lg-9">
+                                            <select id="dropdown-background-repeat" name="dropdown-background-repeat" class="form-control dropdown-background-repeat">
+                                                <option value=""></option>
+                                                <option value="repeat">Repeat</option>
+                                                <option value="repeat-x">Horizontal repeat</option>
+                                                <option value="repeat-y">Vertical repeat</option>
+                                                <option value="no-repeat">No repeat</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dropdown-background-position" class="control-label col-lg-3">Background position</label>
+
+                                        <div class="col-lg-9">
+                                            <input id="dropdown-background-position" type="text" name="dropdown-background-position" class="form-control dropdown-background-position" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="am-update-item" type="button" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

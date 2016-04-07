@@ -1,0 +1,76 @@
+<div id="am-column-configuration">
+    <div id="am-column-configuration-modal" class="modal fade" role="dialog" aria-labelledby="am-column-configuration-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="am-column-configuration-modal-label">Column Configuration</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="column-width" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be in `%%` or `px` for example 97%% or 97px">Width</span></label>
+
+                            <div class="col-lg-9">
+                                <input id="column-width" type="text" name="column-width" class="form-control column-width" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="column-height" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be `px` for example 97px">Height</span></label>
+
+                            <div class="col-lg-9">
+                                <input id="column-height" type="text" name="column-height" class="form-control column-height" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="column-class" class="control-label col-lg-3">Class</label>
+
+                            <div class="col-lg-9">
+                                <input id="column-class" type="text" name="column-class" class="form-control column-class" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="column-background-color" class="control-label col-lg-3">Background color</label>
+
+                            <div class="col-lg-9">
+                                <input id="column-background-color" type="text" name="column-background-color" class="form-control column-background-color" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="column-background-image" class="control-label col-lg-3">Background image</label>
+
+                            <div class="col-lg-9">
+                                <input id="column-background-image" type="text" name="column-background-image" class="form-control column-background-image" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="column-background-repeat" class="control-label col-lg-3">Background repeat</label>
+
+                            <div class="col-lg-9">
+                                <select id="column-background-repeat" name="column-background-repeat" class="form-control column-background-repeat">
+                                    <option value=""></option>
+                                    <option value="repeat">Repeat</option>
+                                    <option value="repeat-x">Horizontal Repeat</option>
+                                    <option value="repeat-y">Vertical Repeat</option>
+                                    <option value="no-repeat">No Repeat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="column-background-position" class="control-label col-lg-3">Background position</label>
+
+                            <div class="col-lg-9">
+                                <input id="column-background-position" type="text" name="column-background-position" class="form-control column-background-position" value="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="am-update-column" type="button" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2016 Amasty (https://www.amasty.com)
+ * @package Amasty_Xnotif
+ */
+?>
+<?php $registry = $this->_helperFactory->get('Magento\Framework\Registry'); ?>
+<?php $_productId = $registry->registry('product')->getId() ?>
+<?php $helper = $this->helper('Amasty\Xnotif\Helper\Data'); ?>
+<?php $urlHelper = $this->helper('Magento\Framework\Url\Helper\Data'); ?>
+<?php $url = $block->escapeHtml($helper->getEmailUrl('stock')); ?>
+<script type="text/javascript">
+    require([
+        'jquery',
+        "mage/mage",
+        "mage/validation"
+    ], function ($) {
+        "use strict";
+        $('#form-validate-stock').mage('validation');
+    });
+</script>
+<div>
+    <form id="form-validate-stock" method="post" action="<?php echo $url; ?>"
+          class="amxnotif-block">
+        <label
+            style="color: #2F2F2F;font-weight: bold; float:none;"><?php echo __(
+                'Subscribe to back in stock notification'
+            ); ?> </label><br/>
+        <input name="guest_email"
+               class="input-text"
+               id="amxnotif_guest_email-<?php echo $_productId; ?>"
+               size="30"
+               type="email"
+               data-validate="{required:true, 'validate-email':true}"
+        />
+        <input type="hidden" name="product_id"
+               value="<?php echo $_productId; ?>"/>
+        <input type="hidden" name="type" value="email"/>
+        <input type="hidden" name="parent_id"
+               value="<?php echo $registry->registry('par_product_id') ?>"/>
+        <input type="hidden"
+               name="<?php echo \Magento\Framework\App\Action\Action::PARAM_NAME_URL_ENCODED ?>"
+               value="<?php echo $urlHelper->getEncodedUrl() ?>"/>
+
+        <div class="actions-toolbar" style="margin-top: 4px">
+            <div class="primary">
+                <button type="submit" class="action submit primary">
+                    <span><?php echo __('Subscribe'); ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

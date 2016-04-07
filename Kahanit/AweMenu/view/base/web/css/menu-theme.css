@@ -1,0 +1,160 @@
+/**
+ * Easily manage navigation with Kahanit Awe Menu
+ *
+ * Kahanit Awe Menu by Kahanit(http://www.kahanit.com) is licensed under a
+ * Creative Creative Commons Attribution-NoDerivatives 4.0 International License.
+ * Based on a work at http://www.kahanit.com.
+ * Permissions beyond the scope of this license may be available at http://www.kahanit.com.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nd/4.0/.
+ *
+ * @author    Amit Sidhpura <amit@kahanit.com>
+ * @copyright 2015 Kahanit
+ * @license   http://creativecommons.org/licenses/by-nd/4.0/
+ */
+/* widths */
+/* menu bar colors */
+/* awe menu */
+#awemenu {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.4em;
+}
+#awemenu .am-tabs .am-tab > a {
+  color: #ffffff;
+}
+#awemenu .am-tabs .am-tab.am-tab-hover > a {
+  color: #ffffff;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column .am-link.am-title {
+  border-bottom: 1px solid #ebebeb;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column .am-link.am-title > a {
+  color: #212121;
+}
+#awemenu .am-tabs .am-tab .am-dropdown .am-row .am-column .am-link > a {
+  color: #000000;
+}
+#awemenu .am-tabs.am-tabs-root {
+  background: #3d3d3d;
+  background: -moz-linear-gradient(top, #3d3d3d 0%, #212121 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3d3d3d), color-stop(100%, #212121));
+  background: -webkit-linear-gradient(top, #3d3d3d 0%, #212121 100%);
+  background: -o-linear-gradient(top, #3d3d3d 0%, #212121 100%);
+  background: -ms-linear-gradient(top, #3d3d3d 0%, #212121 100%);
+  background: linear-gradient(to bottom, #3d3d3d 0%, #212121 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#3d3d3d, endColorstr=#212121, GradientType=0);
+  border: 1px solid #000000;
+}
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab > a {
+  -webkit-box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.1);
+  border-left: 1px solid #000000;
+}
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab:first-child > a {
+  border-top: none;
+}
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab:nth-child(2) > a {
+  border-left: none;
+}
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab.am-tab-hover:before,
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab.am-tab-home:before {
+  color: #ffffff;
+}
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab.am-tab-hover > a,
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab.am-tab-home > a {
+  color: #ffffff;
+  background: #212121;
+  background: -moz-linear-gradient(top, #212121 0%, #212121 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #212121), color-stop(100%, #212121));
+  background: -webkit-linear-gradient(top, #212121 0%, #212121 100%);
+  background: -o-linear-gradient(top, #212121 0%, #212121 100%);
+  background: -ms-linear-gradient(top, #212121 0%, #212121 100%);
+  background: linear-gradient(to bottom, #212121 0%, #212121 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#212121, endColorstr=#212121, GradientType=0);
+}
+#awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab > .am-dropdown {
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#ffffff, GradientType=0);
+}
+#awemenu .am-tabs.am-tabs-horizontal > .am-sortable > .am-tab > a {
+  color: #000000;
+  border-left: 1px solid #cccccc;
+  background: #ffffff;
+}
+#awemenu .am-tabs.am-tabs-horizontal > .am-sortable > .am-tab > .am-dropdown {
+  border-top: 1px solid #cccccc;
+}
+#awemenu .am-tabs.am-tabs-horizontal > .am-sortable > .am-tab.am-tab-hover > a {
+  background: #f0f0f0;
+}
+#awemenu .am-tabs.am-tabs-horizontal > .am-sortable > .am-tab:first-child > a {
+  border: none;
+}
+#awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab > a {
+  color: #000000;
+  border-top: 1px solid #cccccc;
+  background: #ffffff;
+}
+#awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab > .am-dropdown {
+  border-left: 1px solid #cccccc;
+}
+#awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab.am-tab-hover > a {
+  background: #f0f0f0;
+}
+#awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab:first-child > a {
+  border: none;
+}
+#awemenu .am-tabs.am-tabs-accordion > .am-sortable > .am-tab > a {
+  color: #000000;
+  border-top: 1px solid #cccccc;
+  background: #ffffff;
+}
+#awemenu .am-tabs.am-tabs-accordion > .am-sortable > .am-tab > .am-dropdown {
+  border-top: 1px solid #cccccc;
+}
+#awemenu .am-tabs.am-tabs-accordion > .am-sortable > .am-tab.am-tab-hover > a {
+  background: #f0f0f0;
+}
+#awemenu .am-tabs.am-tabs-accordion > .am-sortable > .am-tab:first-child > a {
+  border: none;
+}
+/* awe menu responsive */
+@media (max-width: 768px) {
+  #awemenu .am-tabs .am-tab:before {
+    color: #ffffff;
+    border-left: 1px solid #000000;
+  }
+  #awemenu .am-tabs .am-tab .am-tabs .am-tab:before {
+    color: #000000;
+    border-left: 1px solid #cccccc;
+  }
+  #awemenu .am-tabs.am-tabs-root > .am-sortable > .am-tab > a {
+    border-left: none;
+    border-top: 1px solid #000000;
+  }
+  #awemenu .am-tabs.am-tabs-horizontal > .am-sortable > .am-tab > a {
+    border-left: none;
+    border-top: 1px solid #cccccc;
+  }
+  #awemenu .am-tabs.am-tabs-horizontal > .am-sortable > .am-tab.am-tab-hover > a {
+    background: #fafafa;
+  }
+  #awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab > .am-dropdown {
+    border-left: none;
+    border-top: 1px solid #cccccc;
+  }
+  #awemenu .am-tabs.am-tabs-vertical > .am-sortable > .am-tab.am-tab-hover > a {
+    background: #fafafa;
+  }
+  #awemenu .am-tabs.am-tabs-accordion > .am-sortable > .am-tab.am-tab-hover > a {
+    background: #fafafa;
+  }
+}

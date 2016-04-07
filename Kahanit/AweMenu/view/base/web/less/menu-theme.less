@@ -1,0 +1,328 @@
+/**
+ * Easily manage navigation with Kahanit Awe Menu
+ *
+ * Kahanit Awe Menu by Kahanit(http://www.kahanit.com) is licensed under a
+ * Creative Creative Commons Attribution-NoDerivatives 4.0 International License.
+ * Based on a work at http://www.kahanit.com.
+ * Permissions beyond the scope of this license may be available at http://www.kahanit.com.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nd/4.0/.
+ *
+ * @author    Amit Sidhpura <amit@kahanit.com>
+ * @copyright 2015 Kahanit
+ * @license   http://creativecommons.org/licenses/by-nd/4.0/
+ */
+
+/* widths */
+@screen-xs-max: 768px;
+@screen-sm-min: (@screen-xs-max + 1);
+@screen-sm-max: 992px;
+@screen-md-min: (@screen-sm-max + 1);
+@screen-md-max: 1200px;
+@screen-lg-min: (@screen-md-max + 1);
+
+/* menu bar colors */
+@mb-topclr: #3d3d3d;
+@mb-btmclr: #212121;
+@mb-txtclr: #ffffff;
+
+@mb-hvr-topclr: #212121;
+@mb-hvr-btmclr: #212121;
+@mb-hvr-txtclr: #ffffff;
+
+@mb-bdrclr: #000000;
+
+@dd-topclr: #ffffff;
+@dd-btmclr: #ffffff;
+@dd-txtclr: #000000;
+@dd-ttlclr: #212121;
+
+@dd-bdrclr: #cccccc;
+
+.gradient(@topclr: #333333, @btmclr: #333333) {
+  background: @topclr;
+  background: -moz-linear-gradient(top, @topclr 0%, @btmclr 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @topclr), color-stop(100%, @btmclr));
+  background: -webkit-linear-gradient(top, @topclr 0%, @btmclr 100%);
+  background: -o-linear-gradient(top, @topclr 0%, @btmclr 100%);
+  background: -ms-linear-gradient(top, @topclr 0%, @btmclr 100%);
+  background: linear-gradient(to bottom, @topclr 0%, @btmclr 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@topclr, endColorstr=@btmclr, GradientType=0);
+}
+/* awe menu */
+#awemenu {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.4em;
+  .am-tabs {
+    .am-tab {
+      > a {
+        color: @mb-txtclr;
+      }
+      &.am-tab-hover {
+        > a {
+          color: @mb-hvr-txtclr;
+        }
+      }
+      .am-dropdown {
+        .am-row {
+          .am-column {
+            .am-link {
+              &.am-title {
+                border-bottom: 1px solid lighten(@dd-bdrclr, 12%);
+                > a {
+                  color: @dd-ttlclr;
+                }
+              }
+              > a {
+                color: @dd-txtclr;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.am-tabs-root {
+      .gradient(@mb-topclr, @mb-btmclr);
+      border: 1px solid @mb-bdrclr;
+      > .am-sortable {
+        > .am-tab {
+          > a {
+            -webkit-box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, .1);
+            -moz-box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, .1);
+            box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, .1);
+            border-left: 1px solid @mb-bdrclr;
+          }
+          &:first-child {
+            > a {
+              border-top: none;
+            }
+          }
+          &:nth-child(2) {
+            > a {
+              border-left: none;
+            }
+          }
+          &.am-tab-hover,
+          &.am-tab-home {
+            &:before {
+              color: @mb-hvr-txtclr;
+            }
+            > a {
+              color: @mb-hvr-txtclr;
+              .gradient(@mb-hvr-topclr, @mb-hvr-btmclr);
+            }
+          }
+          > .am-dropdown {
+            border: 1px solid @dd-bdrclr;
+            .gradient(@dd-topclr, @dd-btmclr);
+          }
+        }
+      }
+    }
+    &.am-tabs-horizontal {
+      > .am-sortable {
+        > .am-tab {
+          > a {
+            color: @dd-txtclr;
+            border-left: 1px solid @dd-bdrclr;
+            background: @dd-topclr;
+          }
+          > .am-dropdown {
+            border-top: 1px solid @dd-bdrclr;
+          }
+          &.am-tab-hover {
+            > a {
+              background: darken(@dd-topclr, 6%);
+            }
+          }
+          &:first-child {
+            > a {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    &.am-tabs-vertical {
+      > .am-sortable {
+        > .am-tab {
+          > a {
+            color: @dd-txtclr;
+            border-top: 1px solid @dd-bdrclr;
+            background: @dd-topclr;
+          }
+          > .am-dropdown {
+            border-left: 1px solid @dd-bdrclr;
+          }
+          &.am-tab-hover {
+            > a {
+              background: darken(@dd-topclr, 6%);
+            }
+          }
+          &:first-child {
+            > a {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    &.am-tabs-accordion {
+      > .am-sortable {
+        > .am-tab {
+          > a {
+            color: @dd-txtclr;
+            border-top: 1px solid @dd-bdrclr;
+            background: @dd-topclr;
+          }
+          > .am-dropdown {
+            border-top: 1px solid @dd-bdrclr;
+          }
+          &.am-tab-hover {
+            > a {
+              background: darken(@dd-topclr, 6%);
+            }
+          }
+          &:first-child {
+            > a {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* awe menu responsive */
+@media (max-width: @screen-xs-max) {
+  #awemenu {
+    .am-tabs {
+      .am-tab {
+        &:before {
+          color: @mb-txtclr;
+          border-left: 1px solid @mb-bdrclr;
+        }
+        > a {
+        }
+        &.am-tab-hover {
+          &:before {
+          }
+          > a {
+          }
+        }
+        .am-dropdown {
+          .am-row {
+            .am-column {
+              .am-link {
+                &.am-title {
+                  > a {
+                  }
+                }
+                > a {
+                }
+              }
+            }
+          }
+        }
+        .am-tabs {
+          .am-tab {
+            &:before {
+              color: @dd-txtclr;
+              border-left: 1px solid @dd-bdrclr;
+            }
+            > .am-dropdown {
+            }
+          }
+        }
+      }
+      &.am-tabs-root {
+        > .am-sortable {
+          > .am-tab {
+            > a {
+              border-left: none;
+              border-top: 1px solid @mb-bdrclr;
+            }
+            &:first-child {
+              > a {
+              }
+            }
+            &.am-tab-hover {
+              > a {
+              }
+            }
+            > .am-dropdown {
+            }
+          }
+        }
+      }
+      &.am-tabs-horizontal {
+        > .am-sortable {
+          > .am-tab {
+            > a {
+              border-left: none;
+              border-top: 1px solid @dd-bdrclr;
+            }
+            > .am-dropdown {
+            }
+            &.am-tab-hover {
+              > a {
+                background: darken(@dd-topclr, 2%);
+              }
+            }
+            &:first-child {
+              > a {
+              }
+            }
+          }
+        }
+      }
+      &.am-tabs-vertical {
+        > .am-sortable {
+          > .am-tab {
+            > a {
+            }
+            > .am-dropdown {
+              border-left: none;
+              border-top: 1px solid @dd-bdrclr;
+            }
+            &.am-tab-hover {
+              > a {
+                background: darken(@dd-topclr, 2%);
+              }
+            }
+            &:first-child {
+              > a {
+              }
+            }
+          }
+        }
+      }
+      &.am-tabs-accordion {
+        > .am-sortable {
+          > .am-tab {
+            > a {
+            }
+            > .am-dropdown {
+            }
+            &.am-tab-hover {
+              > a {
+                background: darken(@dd-topclr, 2%);
+              }
+            }
+            &:first-child {
+              > a {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+}
+@media (min-width: @screen-lg-min) {
+}

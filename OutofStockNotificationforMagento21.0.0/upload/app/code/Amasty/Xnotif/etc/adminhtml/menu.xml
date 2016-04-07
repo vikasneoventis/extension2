@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2016 Amasty (https://www.amasty.com)
+ * @package Amasty_Xnotif
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_Xnotif::notifications" title="Notifications" module="Amasty_Xnotif" sortOrder="120"
+             parent="Magento_Reports::report" resource="Amasty_Xnotif::notifications"/>
+        <add id="Amasty_Xnotif::xnotif_stock" title="Out of Stock Notifications" module="Amasty_Xnotif" sortOrder="10"
+             parent="Amasty_Xnotif::notifications" action="xnotif/stock/index" resource="Amasty_Xnotif::stock"/>
+        <add id="Amasty_Xnotif::xnotif_price" title="Price Notifications" module="Amasty_Xnotif" sortOrder="20"
+             parent="Amasty_Xnotif::notifications" action="xnotif/price/index" resource="Amasty_Xnotif::price"/>
+    </menu>
+</config>

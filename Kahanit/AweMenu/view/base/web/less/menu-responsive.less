@@ -1,0 +1,210 @@
+/* widths */
+@screen-xs-max: 768px;
+@screen-sm-min: (@screen-xs-max + 1);
+@screen-sm-max: 992px;
+@screen-md-min: (@screen-sm-max + 1);
+@screen-md-max: 1200px;
+@screen-lg-min: (@screen-md-max + 1);
+
+@media (max-width: @screen-xs-max) {
+  #awemenu {
+    .am-tabs {
+      > .am-sortable {
+        float: none;
+        width: 100%;
+      }
+      .am-tab {
+        float: none;
+        &:before {
+          content: attr(data-content);
+          display: block;
+          font-size: 18px;
+          line-height: 1em;
+          width: 60px;
+          text-align: center;
+          cursor: pointer;
+          float: right;
+          position: relative;
+          z-index: 1;
+          padding: 16px 0;
+        }
+        &.am-tab-no-dropdown:before {
+          display: none;
+        }
+        &.am-tab-hover {
+          > a {
+          }
+          > .am-dropdown {
+            display: none;
+          }
+        }
+        &.am-tab-active {
+          &:before {
+          }
+          > .am-dropdown {
+            display: block;
+          }
+        }
+        > a {
+          width: 100%;
+        }
+        .am-dropdown {
+          width: 100% !important;
+          height: auto;
+          position: static;
+          > .am-sortable {
+            float: none;
+          }
+          .am-row {
+            float: none;
+            > .am-sortable {
+              float: none;
+            }
+            .am-column {
+              float: none;
+              width: 100% !important;
+              height: auto;
+            }
+          }
+        }
+        .am-tabs {
+          min-height: 0 !important;
+          float: none;
+          .am-tab {
+            &:before {
+              padding: 13px 25px;
+            }
+            > .am-dropdown {
+              min-height: 0 !important;
+            }
+          }
+        }
+      }
+      .am-tab-home {
+        display: block;
+        &.am-tab-active {
+          &:before {
+          }
+        }
+        > a {
+        }
+      }
+
+      &.am-tabs-root {
+        height: auto;
+        > .am-sortable {
+          > .am-tab {
+            > a {
+            }
+            > .am-dropdown {
+            }
+          }
+        }
+      }
+      &.am-tabs-horizontal {
+        > .am-sortable {
+          > .am-tab {
+            > a {
+            }
+            > .am-dropdown {
+            }
+          }
+        }
+      }
+      &.am-tabs-vertical {
+        > .am-sortable {
+          float: none;
+          width: 100%;
+          > .am-tab {
+            float: none;
+            > a {
+              float: none;
+            }
+            > .am-dropdown {
+              position: static;
+              width: 100%;
+            }
+          }
+        }
+      }
+      &.am-tabs-accordion {
+        > .am-sortable {
+          > .am-tab {
+            > a {
+            }
+            > .am-dropdown {
+              float: none;
+            }
+          }
+        }
+      }
+    }
+    .am-tabs-hidetabs {
+      .am-tab {
+        display: none;
+      }
+      .am-tab-home {
+        display: block;
+      }
+    }
+  }
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  #awemenu {
+    .am-tabs {
+      a {
+        padding: 16px 3px;
+        font-size: 11px;
+      }
+      .am-tab {
+        .am-row {
+          .am-column {
+            .am-menuitem {
+              a {
+                padding: 1px 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+  #awemenu {
+    .am-tabs {
+      a {
+        padding: 16px 10px;
+      }
+      .am-tab {
+        .am-row {
+          .am-column {
+            .am-menuitem {
+              a {
+                padding: 3px 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: @screen-lg-min) {
+  #awemenu {
+    .am-tabs {
+      a {
+      }
+      .am-tab {
+        .am-row {
+          .am-column {
+            .am-menuitem {
+              a {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

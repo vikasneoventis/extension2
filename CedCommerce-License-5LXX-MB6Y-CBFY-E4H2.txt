@@ -1,0 +1,96 @@
+=========================================================
+Software License Information 
+---------------------------- 
+
+
+
+Product Name: Social Login 
+License Serial: 5LXX-MB6Y-CBFY-E4H2 
+License Type: Commercial for one Magento installation 
+Registered Domain: http://ecommerce.top3.sg/ 
+SKU: CED-M2-064 
+Activation Date: Mar 14, 2016 8:39:23 AM 
+Expiration Date: N/A 
+Reference Order Number: 100001699 
+
+
+
+=========================================================
+Software License Agreement
+--------------------------
+
+THIS LICENSE AGREEMENT (HEREINAFTER AGREEMENT) IS AN AGREEMENT BETWEEN YOU 
+(THE PERSON OR COMPANY WHO IS BEING LICENSED TO USE THE SOFTWARE OR 
+DOCUMENTATION) AND CEDCOMMERCE. (HEREINAFTER WE/US/OUR). THE AGREEMENT 
+APPLIES TO ALL PRODUCTS/SOFTWARE/SCRIPTS/SERVICES YOU PURCHASE FROM US.
+
+1. Terms & Conditions
+  •  Purchase or availing of the software by you implies that the Licensor’s listed 
+  terms and conditions of agreement will be abided by the licensee. The 
+  agreement is active, once the source code of software is legally given to you 
+  via email or data medium. 
+
+  •  CedCommerce reserves the exclusive copyrights of the software, so in no 
+  way, the derivative work or any other activity should conflict with our copyrightable 
+  matter of the software or even a portion of it. Copyright infringement is liable for 
+  cancellation/termination of license, further, if required strict step might be taken too. 
+
+  •  Any legal action regarding license conflict shall be bought in courts of 
+  jurisdiction, where the licensor resides or disposes primary business. 
+
+  •  With the applicable agreement, you are not allowed to use more than one 
+  copy of the Software on one Magento installation for personal or business 
+  purpose, provided all the listed terms are fulfilled. For each software installation, 
+  a separate license is enforced on licensee.
+
+  •  Effective license shall legally allow CedCommerce to add you in our software user list.
+
+  •  All copyright and permission Notice has to be retained at its original place.
+
+  •  You are not allowed to sell and distribute a part of whole of software/source 
+  code/documentation to anyone. Also, putting the software on internet for 
+  distribution purposes is denied to users.
+
+  •  Sublicense, an act of modification to the Agreement’s terms and conditions, is prohibited. 
+
+  •  You are prevented from reproducing a part or whole of our copyrighted source 
+  code in any other software or product.  
+
+  •  For any damages occurred due to improper use of the software or whatsoever reasons, 
+  CedCommerce offers no warrant to licensee. Thus, we do not bear any kind of liability for 
+  prosecution faced under warranty rights.
+
+  •  The license or any of clauses can only be tweaked by CedCommerce. 
+  The same can be imposed by us without seeking prior permission or discussion for it.
+
+  •  You are also free to terminate the license from your end at any given time by 
+  destroying all copies of the Software. However, in such cases, amount paid by you 
+  for software, will not be refunded. 
+
+  •  Terminated licensee, on found using the software in any one or other way, 
+  is bounded by legal framework to pay the attorney fees to CedCommerce for 
+  recovering of damages.
+
+2. Free Upgrades
+ CedCommerce provides totally free upgrades to its customers for the version they are using which means, that if the customer is buying a product version X.m then he/she will be liable to receive free updates for the version branch X. (X.m, X.m.m). The free upgrade version can be downloaded from "Downloadable products" area after logging in. Besides this, an email notification will also be sent to the customer mentioning the new version availability.
+
+3. Free Installation
+ After purchasing the module, Cedcommerce provides free installation to its customers. This is applicable to all the products of CedCommerce and all their versions as well. Installation can be done from the installation guides that will be available to you after purchasing the product. CedCommerce Installation guides are simple to understand and all the installation processes are easy. If there are already any customizations on your site and conflicting with our product then there will be installation fee but we can discuss about it.
+
+4. Return & Refund
+ After purchasing our product you will get entire source code of our extension. So that’s why we don’t have refund policy. We will provide refund only in case we are not able to provide the feature which we mentioned in our user manuals. 
+ We would recommend that before purchasing our Extension, you can check out the demo of our products, indulge in discussions with our support team or our development team if required, and clarify all your doubts and requirements by generating tickets on support, sending queries on online chat or email. If you get completely satisfied with our product after going through all the background analysis that is required for you to understand our product and see that if suits your requirements, only then you should purchase our product. Having said this, we won’t entertain any refund, return or exchange request from your side after you purchase our product.
+ Moreover, if you install any other extension and it conflicts with our extension then in that case we will not provide free support as that will be a part of customization. We guarantee bug free extension from our side but cannot assure any other third party extension. For that purpose, you need to contact the support team of the concerned extension provider.
+ We will provide all kind of support to you to resolve out the issues that you are facing if it is with our extension as we want to make sure that none of our customers get unsatisfied. We believe in Customer Satisfaction and therefore make every possible effort to keep our customers happy. 
+  •  Prior to purchasing any of our products, you should read the details of the product, thoroughly go through the user manuals that are provided for every product and carefully check the DEMO. After purchasing if you demand for something that we never promised then either it will be a part of customization or we won’t be liable for it. No refund will be offered in any case.
+  •  If the module is not working on your site then we will need access to FTP details, Admin details (user id and password) and Database details etc so as to debug the issue.
+  •  For solving any of the issues completely, FTP and admin panel details are mandatory. If it is not possible for you to share these details with us then we would highly recommend not purchasing of our module.  We will not entertain any kind of refund in this case. 
+ We will provide refund only if we will be unable to resolve the issues in our extension.
+ If you still have any more queries then please contact us at support (online chat) or generate a support ticket at - http://support.cedcommerce.com/
+
+
+5. Support Services
+ We provide free support services 24*7 for any of the queries related with the module that you have purchased. For any issues or confusions you can contact us at support@cedcommerce.com or you can also visit our website support.cedcommerce.com. Our support team will reply all your queries with well-explained answers and our response will be quick for the convenience of our customers.
+
+6. No Encryption
+ All the modules of CedCommerce follow No Encryption policy i.e. our code is quite standardized and it doesn't contains any encryption in its code so that all its customers can easily understand the flow of the code.

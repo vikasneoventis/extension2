@@ -1,0 +1,52 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2016 Amasty (https://www.amasty.com)
+ * @package Amasty_Xnotif
+ */
+?>
+<?php $registry = $this->_helperFactory->get('Magento\Framework\Registry'); ?>
+<?php $_productId = $registry->registry('product')->getId() ?>
+<?php $helper = $this->helper('Amasty\Xnotif\Helper\Data'); ?>
+<?php $urlHelper = $this->helper('Magento\Framework\Url\Helper\Data'); ?>
+<?php $url = $block->escapeHtml($helper->getEmailUrl('price')); ?>
+<script type="text/javascript">
+    require([
+        'jquery',
+        "mage/mage",
+        "mage/validation"
+    ], function ($) {
+        "use strict";
+        $('#form-validate-price').mage('validation');
+    });
+</script>
+<div style="margin-bottom: 20px;">
+    <form id="form-validate-price" method="post" action="<?php echo $url; ?>">
+        <label
+            style="color: #2F2F2F;font-weight: bold; float:none;"><?php echo __(
+                'Sign up for price alert'
+            ); ?> </label><br/>
+        <input type="email"
+               data-validate="{required:true, 'validate-email':true}"
+               name="guest_email_price"
+               id="amxnotif_guest_email_price-<?php echo $_productId; ?>"
+               class="input-text"
+               size="30"/>
+        <input type="hidden" name="product_id"
+               value="<?php echo $_productId; ?>"/>
+        <input type="hidden" name="type" value="email"/>
+        <input type="hidden" name="parent_id"
+               value="<?php echo $registry->registry('par_product_id') ?>"/>
+        <input type="hidden"
+               name="<?php echo \Magento\Framework\App\Action\Action::PARAM_NAME_URL_ENCODED ?>"
+               value="<?php echo $urlHelper->getEncodedUrl() ?>"/>
+
+        <div class="actions-toolbar" style="margin-top: 4px">
+            <div class="primary">
+                <button type="submit" class="action submit primary">
+                    <span><?php echo __('Subscribe'); ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,1 @@
+{\"mb-topclr\":\"3d3d3d\",\"mb-btmclr\":\"212121\",\"mb-txtclr\":\"ffffff\",\"mb-hvr-topclr\":\"212121\",\"mb-hvr-btmclr\":\"212121\",\"mb-hvr-txtclr\":\"ffffff\",\"mb-bdrclr\":\"000000\",\"dd-topclr\":\"ffffff\",\"dd-btmclr\":\"ffffff\",\"dd-txtclr\":\"000000\",\"dd-ttlclr\":\"212121\",\"dd-bdrclr\":\"cccccc\",\"css\":\"#awemenu{padding:0 20px;margin:0;}\"}

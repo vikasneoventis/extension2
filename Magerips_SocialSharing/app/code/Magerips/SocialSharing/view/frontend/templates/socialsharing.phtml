@@ -1,0 +1,36 @@
+<?php
+$enableWhatsapp=$this->_scopeConfig->getValue('socialsharing/whatsapp/enable_whatsapp', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+$enableFacebook=$this->_scopeConfig->getValue('socialsharing/facebook/enable_facebook', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+ $enableTwitter=$this->_scopeConfig->getValue('socialsharing/twitter/enable_twitter', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+$enableGoogle=$this->_scopeConfig->getValue('socialsharing/googleplus/enable_google_plus', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+$enablePinit=$this->_scopeConfig->getValue('socialsharing/pinitsharing/enable_pinit', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+$enableGoogleShare=$this->_scopeConfig->getValue('socialsharing/googleplus/enable_google_share', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+?>
+
+<div class="magerips_social">
+<?php if($enableWhatsapp==1): 
+echo $this->getWhatsappButton();
+endif; 
+  if($enableFacebook==1): 
+echo $this->getFacebookButton();
+endif; 
+ 
+if($enableTwitter==1):
+echo $this->getTwitterButton();
+  endif; 
+  
+  if($enablePinit==1):
+  echo $this->getPinItButton();
+endif; 
+  
+ if($enableGoogle==1 || $enableGoogleShare==1){
+	  echo  '<script src="https://apis.google.com/js/platform.js" async defer></script>';
+  }
+ if($enableGoogleShare==1):
+  echo $this->getGoogleShareButton();
+  endif; 
+ if($enableGoogle==1): 
+  echo $this->getGooglePlusButton();
+ endif; 
+ ?>
+</div>

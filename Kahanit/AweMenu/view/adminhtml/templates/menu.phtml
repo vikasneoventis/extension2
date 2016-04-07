@@ -1,0 +1,33 @@
+<div class="page-main-actions">
+    <div class="awemenu-stores admin__action-dropdown-wrap">
+        <span class="admin__action-dropdown-label">Store View:</span>
+        <a href="#" class="admin__action-dropdown" title="My Account" data-toggle="dropdown"><span class="admin__action-dropdown-text">
+                <span class="awemenu-stores-account-text">
+                    <?= $block->getStoreViewDDItems[$block->storeId]['name'] . ' <em>(ID: ' . $block->storeId . ')</em>'; ?>
+                </span>
+            </span></a>
+        <ul class="admin__action-dropdown-menu">
+            <?php foreach ($block->getStoreViewDDItems as $storeId => $storeViewDDItem) { ?>
+                <li<?= (isset($storeViewDDItem['selected']) && $storeViewDDItem['selected'] === 1) ? ' class="selected"' : ''; ?>>
+                    <a href="<?= $block->getUrl('awemenu/index/index', [
+                        'store' => $storeId
+                    ]); ?>">
+                        <?= $storeViewDDItem['name'] . ' <em>(ID: ' . $storeId . ')</em>'; ?>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+</div>
+<div class="wrap">
+    <div id="am-builder" data-mage-init='<?= $block->aweMenuMageInit(); ?>'>
+        <div class="bootstrap">
+            <?php include "panels/editor.phtml"; ?>
+            <?php include "panels/revisions.phtml"; ?>
+            <?php include "configurations/row.phtml"; ?>
+            <?php include "configurations/column.phtml"; ?>
+            <?php include "configurations/item.phtml"; ?>
+            <div class="module-text">Awe Menu - Magento Mega Menu Module (v1.0.0)</div>
+        </div>
+    </div>
+</div>

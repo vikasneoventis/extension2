@@ -1,0 +1,256 @@
+/**
+ * Easily manage navigation with Kahanit Awe Menu
+ *
+ * Kahanit Awe Menu by Kahanit(http://www.kahanit.com) is licensed under a
+ * Creative Creative Commons Attribution-NoDerivatives 4.0 International License.
+ * Based on a work at http://www.kahanit.com.
+ * Permissions beyond the scope of this license may be available at http://www.kahanit.com.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nd/4.0/.
+ *
+ * @author    Amit Sidhpura <amit@kahanit.com>
+ * @copyright 2015 Kahanit
+ * @license   http://creativecommons.org/licenses/by-nd/4.0/
+ */
+
+/* widths */
+@screen-xs-max: 768px;
+@screen-sm-min: (@screen-xs-max + 1);
+@screen-sm-max: 992px;
+@screen-md-min: (@screen-sm-max + 1);
+@screen-md-max: 1200px;
+@screen-lg-min: (@screen-md-max + 1);
+
+/* awe menu */
+#awemenu {
+  position: relative;
+  margin: 15px 0;
+  *, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* main menu styles */
+  .am-tabs {
+    position: relative;
+    a {
+      display: block;
+      padding: 16px 20px;
+      font-size: 13px;
+      line-height: 18px;
+      .fa {
+        margin-right: 3px;
+      }
+      .am-badge {
+        font-size: 9px;
+        line-height: 1em;
+        padding: 2px 4px;
+        position: relative;
+        top: -9px;
+      }
+    }
+    > .am-sortable {
+      float: left;
+    }
+
+    .am-tab {
+      float: left;
+      > a {
+        position: relative;
+      }
+      .am-dropdown {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        width: 100%;
+        > .am-sortable {
+          float: left;
+          width: 100%;
+        }
+        .am-row {
+          float: left;
+          width: 100%;
+          position: relative;
+          > .am-sortable {
+            float: left;
+            width: 100%;
+          }
+          .am-column {
+            float: left;
+            position: relative;
+            min-width: 100px;
+            > .am-sortable {
+            }
+            .am-item {
+              position: relative;
+              clear: both;
+            }
+            .am-link {
+              &.am-title {
+                font-weight: bold;
+                > a {
+                  padding: 8px 20px;
+                }
+              }
+              > a {
+                padding: 5px 20px;
+                line-height: 1.5em;
+              }
+            }
+            .am-html {
+              .am-item-pad {
+                padding: 5px 20px;
+              }
+            }
+          }
+        }
+      }
+      &.am-tab-hover {
+        > .am-dropdown {
+          display: block;
+        }
+      }
+    }
+    .am-tab-home {
+      display: none;
+      &:before {
+        display: none !important;
+      }
+      > a {
+        .fa {
+          float: right;
+          margin-top: 3px;
+        }
+      }
+    }
+
+    .am-tab-dropdown-full-width {
+      > .am-dropdown {
+        width: 100%;
+        left: 0;
+      }
+    }
+    .am-tab-dropdown-parent-left {
+      position: relative;
+      > .am-dropdown {
+        left: 0;
+      }
+    }
+    .am-tab-dropdown-parent-right {
+      position: relative;
+      > .am-dropdown {
+        left: auto;
+        right: 0;
+      }
+    }
+    .am-tab-dropdown-parent-center {
+      position: relative;
+      > .am-dropdown {
+      }
+    }
+    .am-tab-dropdown-menu-left {
+      > .am-dropdown {
+        width: auto;
+        left: 0;
+      }
+    }
+    .am-tab-dropdown-menu-right {
+      > .am-dropdown {
+        width: auto;
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &.am-tabs-root {
+      height: 51px;
+      > .am-sortable {
+        > .am-tab {
+          > .am-dropdown {
+            box-sizing: content-box;
+            margin-left: -1px;
+          }
+        }
+      }
+    }
+    &.am-tabs-horizontal {
+      height: auto;
+      float: left;
+      width: 100%;
+      > .am-sortable {
+        > .am-tab {
+          > a {
+            padding-top: 13px;
+            padding-bottom: 13px;
+          }
+          > .am-dropdown {
+          }
+        }
+      }
+    }
+    &.am-tabs-vertical {
+      height: auto;
+      float: left;
+      width: 100%;
+      > .am-sortable {
+        float: left;
+        width: 20%;
+        > .am-tab {
+          float: left;
+          width: 100%;
+          clear: both;
+          > a {
+            float: left;
+            width: 100%;
+            padding-top: 13px;
+            padding-bottom: 13px;
+          }
+          > .am-dropdown {
+            position: absolute;
+            width: 80%;
+            top: 0;
+            left: 20%;
+          }
+        }
+      }
+    }
+    &.am-tabs-accordion {
+      height: auto;
+      float: left;
+      width: 100%;
+      > .am-sortable {
+        width: 100%;
+        > .am-tab {
+          width: 100%;
+          > a {
+            padding-top: 13px;
+            padding-bottom: 13px;
+          }
+          > .am-dropdown {
+            box-sizing: border-box;
+            position: static;
+            float: left;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    /* youtube, vimeo, google map styles */
+    .am-youtube, .am-vimeo, .am-googlemap {
+      .am-item-pad {
+        width: 100%;
+        height: 100%;
+        .am-googlemap-container, iframe {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

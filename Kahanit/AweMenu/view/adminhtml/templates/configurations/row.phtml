@@ -1,0 +1,69 @@
+<div id="am-row-configuration">
+    <div id="am-row-configuration-modal" class="modal fade" role="dialog" aria-labelledby="am-row-configuration-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="am-row-configuration-modal-label">Row Configuration</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="row-height" class="control-label col-lg-3"><span class="label-tooltip" data-toggle="tooltip" data-html="true" title="It can be `px` for example 97px">Height</span></label>
+
+                            <div class="col-lg-9">
+                                <input id="row-height" type="text" name="row-height" class="form-control row-height" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="row-class" class="control-label col-lg-3">Class</label>
+
+                            <div class="col-lg-9">
+                                <input id="row-class" type="text" name="row-class" class="form-control row-class" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="row-background-color" class="control-label col-lg-3">Background color</label>
+
+                            <div class="col-lg-9">
+                                <input id="row-background-color" type="text" name="row-background-color" class="form-control row-background-color" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="row-background-image" class="control-label col-lg-3">Background image</label>
+
+                            <div class="col-lg-9">
+                                <input id="row-background-image" type="text" name="row-background-image" class="form-control row-background-image" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="row-background-repeat" class="control-label col-lg-3">Background repeat</label>
+
+                            <div class="col-lg-9">
+                                <select id="row-background-repeat" name="row-background-repeat" class="form-control row-background-repeat">
+                                    <option value=""></option>
+                                    <option value="repeat">Repeat</option>
+                                    <option value="repeat-x">Horizontal Repeat</option>
+                                    <option value="repeat-y">Vertical Repeat</option>
+                                    <option value="no-repeat">No Repeat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="row-background-position" class="control-label col-lg-3">Background position</label>
+
+                            <div class="col-lg-9">
+                                <input id="row-background-position" type="text" name="row-background-position" class="form-control row-background-position" value="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="am-update-row" type="button" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

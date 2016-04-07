@@ -1,0 +1,132 @@
+<?php foreach ($menu as $item) {
+    $class = ((isset($item['config']['class']) && !empty($item['config']['class'])) ? (' ' . $item['config']['class']) : '');
+    $dropdownclass = ((isset($item['config']['dropdown']['class']) && !empty($item['config']['dropdown']['class'])) ? (' ' . $item['config']['dropdown']['class']) : '');
+    $classautogen = ((isset($item['config']['class-autogen']) && !empty($item['config']['class-autogen'])) ? (' ' . $item['config']['class-autogen']) : '');
+    $classbadgeautogen = ((isset($item['config']['class-badge-autogen']) && !empty($item['config']['class-badge-autogen'])) ? (' ' . $item['config']['class-badge-autogen']) : '');
+    $classdropdownautogen = ((isset($item['config']['class-dropdown-autogen']) && !empty($item['config']['class-dropdown-autogen'])) ? (' ' . $item['config']['class-dropdown-autogen']) : '');
+    $target = ((isset($item['config']['target']) && !empty($item['config']['target'])) ? (' target="' . $item['config']['target'] . '"') : '');
+    $align = ((isset($item['config']['dropdown']['align']) && !empty($item['config']['dropdown']['align'])) ? (' am-tab-dropdown-' . $item['config']['dropdown']['align']) : '');
+
+    if (isset($item['config']['text'])) {
+        $text = ((is_array($item['config']['text'])) ? $item['config']['text']['lang_id_0'] : $item['config']['text']);
+    } else {
+        $text = '';
+    }
+
+    if (isset($item['config']['url'])) {
+        $url = ((is_array($item['config']['url'])) ? $item['config']['url']['lang_id_0'] : $item['config']['url']);
+    } else {
+        $url = '';
+    }
+
+    if (isset($item['config']['custom-text'])) {
+        $customtext = $item['config']['custom-text']['lang_id_0'];
+    } else {
+        $customtext = '';
+    } ?>
+
+    <?php if ($item['xtype'] == 'tab') { ?>
+        <div class="am-tab<?= $class; ?><?= $align; ?>" data-content="+">
+            <a<?= $target; ?> class="<?= $classautogen; ?>" href="<?= $url; ?>">
+                <?php if ($item['config']['icon'] != '' && $item['config']['icon'] != '-') { ?>
+                    <i class="fa <?= $item['config']['icon']; ?>"></i>
+                <?php } ?>
+                <?php if (isset($customtext) && $customtext != '') { ?>
+                    <span class="am-tab-text"><?= $customtext; ?></span>
+                <?php } else { ?>
+                    <span class="am-tab-text"><?= $text; ?></span>
+                <?php } ?>
+                <?php if (isset($item['config']['badge-text']['lang_id_0']) && !empty($item['config']['badge-text']['lang_id_0'])) { ?>
+                    <span class="am-badge<?= $classbadgeautogen; ?>"><?= $item['config']['badge-text']['lang_id_0']; ?></span>
+                <?php } ?>
+            </a>
+
+            <?php if (is_array($item['items']) && count($item['items']) > 0) { ?>
+                <div class="am-dropdown<?= $classdropdownautogen; ?><?= $dropdownclass; ?>">
+                    <div class="am-sortable am-sortable-y">
+                        <?php $menu = $item['items'];
+                        include "menu-items.phtml"; ?>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    <?php } elseif ($item['xtype'] == 'row') { ?>
+        <div class="am-row<?= $class; ?><?= $classautogen; ?>">
+            <div class="am-sortable am-sortable-x am-sortable-columns">
+                <?php if (is_array($item['items']) && count($item['items']) > 0) {
+                    $menu = $item['items'];
+                    include "menu-items.phtml";
+                } ?>
+            </div>
+        </div>
+    <?php } elseif ($item['xtype'] == 'column') { ?>
+        <div class="am-column<?= $class; ?><?= $classautogen; ?>">
+            <div class="am-sortable am-sortable-y am-sortable-items">
+                <?php if (is_array($item['items']) && count($item['items']) > 0) {
+                    $menu = $item['items'];
+                    include "menu-items.phtml";
+                } ?>
+            </div>
+        </div>
+    <?php } elseif ($item['xtype'] == 'tabs') { ?>
+        <div class="am-item am-tabs am-tabs-<?= $item['config']['layout']; ?><?= $class; ?><?= $classautogen; ?>">
+            <div class="am-sortable am-sortable-x">
+                <?php if ($item['config']['layout'] == 'root') { ?>
+                    <div class="am-tab am-tab-home" data-content="+">
+                        <a href="#" onclick="return false;"> <i class="fa fa-bars"></i> Menu </a>
+                    </div>
+                <?php } ?>
+                <?php if (is_array($item['items']) && count($item['items']) > 0) {
+                    $menu = $item['items'];
+                    include "menu-items.phtml";
+                } ?>
+            </div>
+        </div>
+    <?php } elseif ($item['xtype'] == 'link') { ?>
+        <div class="am-item am-link<?= $class; ?>">
+            <a<?= $target; ?> class="<?= $classautogen; ?>" href="<?= $url; ?>">
+                <?php if ($item['config']['icon'] != '' && $item['config']['icon'] != '-') { ?>
+                    <i class="fa <?= $item['config']['icon']; ?>"></i>
+                <?php } ?>
+                <?php if (isset($customtext) && $customtext != '') { ?>
+                    <span class="am-link-text"><?= $customtext; ?></span>
+                <?php } else { ?>
+                    <span class="am-link-text"><?= $text; ?></span>
+                <?php } ?>
+                <?php if (isset($item['config']['badge-text']['lang_id_0']) && !empty($item['config']['badge-text']['lang_id_0'])) { ?>
+                    <span class="am-badge<?= $classbadgeautogen; ?>"><?= $item['config']['badge-text']['lang_id_0']; ?></span>
+                <?php } ?>
+            </a>
+        </div>
+    <?php } elseif ($item['xtype'] == 'html') { ?>
+        <div class="am-item am-html<?= $class; ?><?= $classautogen; ?>">
+            <div class="am-item-pad">
+                <?= $item['config']['content']['lang_id_0']; ?>
+            </div>
+        </div>
+    <?php } elseif ($item['xtype'] == 'youtube') { ?>
+        <div class="am-item am-youtube<?= $class; ?><?= $classautogen; ?>">
+            <div class="am-item-pad">
+                <iframe width="100%" height="100%" src="//www.youtube<?= ($item['config']['enable-privacy-enh-mode']) ? '-nocookie' : ''; ?>.com/embed/<?= $item['config']['video']; ?>?
+                        showinfo=<?= $item['config']['show-title-and-actions']; ?>&rel=<?= $item['config']['show-suggested']; ?>&
+                        controls=<?= $item['config']['show-controls']; ?>&autoplay=<?= $item['config']['autoplay']; ?>" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    <?php } elseif ($item['xtype'] == 'vimeo') { ?>
+        <div class="am-item am-vimeo<?= $class; ?><?= $classautogen; ?>">
+            <div class="am-item-pad">
+                <iframe width="100%" height="100%" src="//player.vimeo.com/video/<?= $item['config']['video']; ?>?
+                        autoplay=<?= $item['config']['autoplay']; ?>&loop=<?= $item['config']['loop']; ?>&color=<?= $item['config']['color']; ?>&
+                        portrait=<?= $item['config']['show-portrait']; ?>&title=<?= $item['config']['show-title']; ?>&
+                        byline=<?= $item['config']['show-byline']; ?>&badge=<?= $item['config']['show-badge']; ?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    <?php } elseif ($item['xtype'] == 'googlemap') { ?>
+        <div class="am-item am-googlemap<?= $class; ?><?= $classautogen; ?>">
+            <div class="am-item-pad">
+                <?php $gmcounter++ ?>
+                <div id="am-googlemap-container-<?= $gmcounter; ?>" data-counter="<?= $gmcounter; ?>" class="am-googlemap-container" data-lat="<?= $item['config']['latitude']; ?>" data-lng="<?= $item['config']['longitude']; ?>" data-zoom="<?= $item['config']['zoom']; ?>"></div>
+            </div>
+        </div>
+    <?php }
+} ?>
