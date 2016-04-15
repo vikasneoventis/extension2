@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © 2016 SalesIds. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper('Magento\Search\Helper\Data');
+?>
+<div class="block block-search block-catalog-search-autocomplete">
+    <?php /*div class="block block-title"><strong><?php echo __('Search'); ?></strong></div*/ ?>
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mobile_form" action="<?php /* @escapeNotVerified */ echo $helper->getResultUrl() ?>" method="get">
+            <div class="field search" id="search-collapse-wrapper" 
+              data-mage-init='{"collapsible":{
+                "formSelector":"#search-collapse-wrapper"
+                }
+              }'>
+                <label class="label" for="search_mobile" data-role="title">
+                    <span><?php /* @escapeNotVerified */ echo __('Search'); ?></span>
+                </label>
+                <div class="control" data-role="content">
+                    <input id="search_mobile"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mobile_form",
+                                "url":"<?php /* @escapeNotVerified */ echo $block->getUrl('search/ajax/suggest'); ?>",
+                                "destinationSelector":"#search_autocomplete_mobile"}
+                           }'
+                           type="text"
+                           name="<?php /* @escapeNotVerified */ echo $helper->getQueryParamName() ?>"
+                           value="<?php /* @escapeNotVerified */ echo $helper->getEscapedQueryText() ?>"
+                           placeholder="<?php /* @escapeNotVerified */ echo __('Search entire store here...'); ?>"
+                           class="input-text"
+                           maxlength="<?php /* @escapeNotVerified */ echo $helper->getMaxQueryLength();?>"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                    <div class="actions">
+                      <button type="submit"
+                              title="<?php echo $block->escapeHtml(__('Search')) ?>"
+                              class="action search">
+                          <span><?php /* @escapeNotVerified */ echo __('Search'); ?></span>
+                      </button>
+                  </div>
+                  <div id="search_autocomplete_mobile" class="search-autocomplete catalog-search-autocomplete"></div>
+                    <?php echo $block->getChildHtml() ?>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="search_autocomplete_mobile" class="search_autocomplete"></div>

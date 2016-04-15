@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Emosys Team
+ * @copyright Copyright (c) 2016 Emosys Ltd (http://www.emosys.com)
+ * @package Emosys_Chat
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <section id="emosys_chat" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Zopim Chat</label>
+            <tab>emosys</tab>
+            <resource>Emosys_Chat::config</resource>
+            <group id="base" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>About Emosys.com</label>
+                <field id="info" translate="button_label" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Emosys\Chat\Block\Adminhtml\System\Config\Info</frontend_model>
+                </field>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Config</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="key" translate="label" type="password" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Key of your Zopim account</label>
+                    <comment><![CDATA[Use the button "Sign Up or Login to Zopim" above to fill email and key account fields to facilitate your life. Otherwise, you can find when you get the widget code to copy and paste. it's just after the "?" in ...//zopim.com/?... e.g. tQSvi0h1kK832654Mw82weFVthsbMRtBHr]]></comment>
+                </field>
+                <field id="language" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Language?</label>
+                    <source_model>Emosys\Chat\Model\Config\Source\Language</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,58 +1,14 @@
-    <?php $settingsForColor = $this->getSocialIconsColor();
+<?php $settingsForColor = $this->getSocialIconsColor();
 $socialIconsColor = json_decode($settingsForColor, true);
 ?>
 
 <?php if ($this->getEnable()): ?>
-    <div class="iwd-newsletterpopup-main-wrapper">
+    <div class="iwd-newsletterpopup-main-wrapper" style="display: none">
         <div id="iwd-newsletterpopup-wrapper">
-            <div class="main-newsletter-wrapper">
-                <div class="iwd-newsletter-title-wrapper">
-                    <div class="iwd-newsletterpopup-main-title">
-                        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('iwd-newsletterpopup-top')->toHtml(); ?>
-                    </div>
-                    <div class="iwd-newsletter-title-response">
-                        <h1 class="iwd-newsletter-success_title message_title"><?php echo __('Good News!') ?></h1>
-
-                        <h1 class="iwd-newsletter-error_title message_title"><?php echo __('Opps!') ?></h1>
-                    </div>
+            <div class="main-newsletter-wrapper popup-loader">
+                <div class="newsletterpopup-top subscribe-content-wrapper">
+                    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('newsletter_popup')->toHtml(); ?>
                 </div>
-                <div class="iwd-newsletter-content-wrapper">
-                    <form novalidate
-                          action="<?php /* @escapeNotVerified */
-                          echo $block->getFormActionUrl() ?>"
-                          method="post"
-                          data-mage-init='{"validation": {"errorClass": "mage-error"}}'
-                          class="iwd-newseletter-form"
-                          name="iwd-newseletter-subscribe-form">
-                        <div class="iwd-newsletter-input-for-email">
-                            <input name="email" type="email" class="required-entry validate-email"
-                                   id="iwd-newsletterpopup-email-field"
-                                   placeholder="<?php /* @escapeNotVerified */
-                                   echo __('Enter your email address') ?>"
-                                   data-validate="{required:true, 'validate-email':true}"/>
-                        </div>
-                        <div class="iwd-newsletter-button-for-submit">
-                            <button class="iwd-newsletter-send-button" title="<?php /* @escapeNotVerified */
-                            echo __('Subscribe') ?>" type="submit">
-                                <span><?php echo __('Subscribe') ?></span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="iwd-newsletter-content-response"></div>
-                <?php if (strlen($this->getSocialIcons()) > 50): ?>
-                    <div class="iwd-newsletter-footer-wrapper">
-                        <div class="iwd-newsletter-main-footer">
-                            <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('iwd-newsletterpopup-bottom')->toHtml(); ?>
-                            <?php echo $this->getSocialIcons(); ?>
-                        </div>
-                        <div class="iwd-newsletter-footer-response">
-                            <button class="iwd-newsletter-go-back"><?php echo __('Go back') ?></button>
-                            <button class="iwd-newsletter-start-shopping">
-                                <span><?php echo __('Start shopping') ?></span></button>
-                        </div>
-                    </div>
-                <?php endif; ?>
             </div>
 
         </div>
@@ -143,13 +99,14 @@ $socialIconsColor = json_decode($settingsForColor, true);
 
 <script>
     // <![CDATA[
-
+    var iwdNewspopupConfig = '<?php echo $this->getPopupParams()?>';
     require(['IWD_NewsletterPopup/js/iwd_newsletterpopup'],
         function (iwdNewsletterpopup) {
             var newsletterPopup = new iwdNewsletterpopup();
             newsletterPopup.init();
+            jQuery(document).on('click','.main-newsletter-wrapper .btn-thanks',function(event) {
+                jQuery('.action-close').click();
+            });
         });
-        var iwdNewspopupConfig = '<?php echo $this->getPopupParams()?>';
-
     // ]]>
 </script>

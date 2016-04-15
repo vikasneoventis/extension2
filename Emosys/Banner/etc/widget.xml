@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Emosys team
+ * @copyright Copyright (c) 2016 Emosys Ltd (http://www.emosys.com)
+ * @package Emosys_Banner
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="emosys_banner_item" class="Emosys\Banner\Block\Widget\Item"
+            placeholder_image="Emosys_Banner::images/widget_item.png">
+        <label translate="true">Emosys Banner</label>
+        <description translate="true">Contents of a Emosys Banner</description>
+        <parameters>
+            <parameter name="item_id" xsi:type="block" visible="true" required="true" sort_order="20">
+                <label translate="true">Item</label>
+                <block class="Emosys\Banner\Block\Adminhtml\Item\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Item...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="10">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/item/default.phtml" selected="true">
+                        <label translate="true">Emosys Banner Block Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

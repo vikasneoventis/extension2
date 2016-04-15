@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Emosys team
+ * @copyright Copyright (c) 2016 Emosys Ltd (http://www.emosys.com)
+ * @package Emosys_Base
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Emosys_Base::config" title="Emosys.com" module="Emosys_Base" sortOrder="100" parent="Magento_Catalog::catalog" resource="Emosys_Base::config"/>
+    </menu>
+</config>

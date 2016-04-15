@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2016 Amasty (https://www.amasty.com)
+ * @package Amasty_Xnotif
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="amasty" translate="label" sortOrder="10">
+            <label>Amasty</label>
+        </tab>
+        <section id="amxnotif" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Out of Stock Notifications</label>
+            <tab>amasty</tab>
+            <resource>Amasty_Xnotif::xnotif</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>General</label>
+                <comment>
+                    <![CDATA[<div style="font-weight:bold;">If the extension doesn't send emails, please read this topic:</div> <a href="https://support.amasty.com/index.php?/Knowledgebase/Article/View/79/25/i-cant-send-notifications" target="_blank">I can't send notifications</a>]]>
+                </comment>
+                <field id="account_image" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Use Configurable Image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        Use configurable product image for simple product subscriptions on account page
+                    </comment>
+                </field>
+                <field id="customer_name" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Greeting Text for Email</label>
+                </field>
+                <field id="min_qty" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Minimum Stock Quantity</label>
+                    <comment>
+                        Minimum stock quantity before the email is triggered.
+                    </comment>
+                </field>
+            </group>
+
+            <group id="stock" translate="label" type="text" sortOrder="20" showInDefault="5" showInWebsite="0"
+                   showInStore="0">
+                <label>Stock Subscribtion</label>
+                <field id="disable_guest" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Disable Subscribe For Guest</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="unsubscribeC" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Unsubscribe Register Customer After Send Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="unsubscribeG" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Unsubscribe Guest After Send Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="price" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Price Subscribtion</label>
+                <field id="disable_guest" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Disable Subscribe For Guest</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="unsubscribeC" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Unsubscribe Register Customer After Send Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="unsubscribeG" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Unsubscribe Guest After Send Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

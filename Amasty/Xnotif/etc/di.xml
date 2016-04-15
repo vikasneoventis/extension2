@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2016 Amasty (https://www.amasty.com)
+ * @package Amasty_Xnotif
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\ProductAlert\Model\ResourceModel\Stock\Customer\Collection"
+                type="Amasty\Xnotif\Model\ResourceModel\Stock\Customer\Collection"/>
+    <preference for="Magento\ProductAlert\Model\ResourceModel\Price\Customer\Collection"
+                type="Amasty\Xnotif\Model\ResourceModel\Price\Customer\Collection"/>
+
+    <!--    <preference for="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable" type="Amasty\Xnotif\Block\Product\View\Type\Configurable" />-->
+    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+        <plugin name="xnotifConfigurable" type="Amasty\Xnotif\Block\Product\View\Type\Configurable"/>
+    </type>
+    <type name="Magento\ProductAlert\Controller\Unsubscribe\Price">
+        <plugin name="xnotifUnsubscribePrice" type="Amasty\Xnotif\Plugins\Unsubscribe"/>
+    </type>
+    <type name="Magento\ProductAlert\Controller\Unsubscribe\PriceAll">
+        <plugin name="xnotifUnsubscribeAllPrice" type="Amasty\Xnotif\Plugins\Unsubscribe"/>
+    </type>
+    <type name="Magento\ProductAlert\Controller\Unsubscribe\Stock">
+        <plugin name="xnotifUnsubscribeStock" type="Amasty\Xnotif\Plugins\Unsubscribe"/>
+    </type>
+    <type name="Magento\ProductAlert\Controller\Unsubscribe\StockAll">
+        <plugin name="xnotifUnsubscribeAllStock" type="Amasty\Xnotif\Plugins\Unsubscribe"/>
+    </type>
+
+
+    <type name="Magento\ProductAlert\Block\Email\Price">
+        <plugin name="xnotifGetUnsubscribeUrlPrice" type="Amasty\Xnotif\Plugins\Url"/>
+    </type>
+    <type name="Magento\ProductAlert\Block\Email\Stock">
+        <plugin name="xnotifGetUnsubscribeUrlStock" type="Amasty\Xnotif\Plugins\Url"/>
+    </type>
+
+    <preference for="Magento\ProductAlert\Model\Observer" type="Amasty\Xnotif\Model\Observer"/>
+</config>

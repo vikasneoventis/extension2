@@ -1,0 +1,54 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * @see \Magento\Customer\Block\Adminhtml\System\Config\Validatevat
+ */
+?>
+<script>
+require(['prototype'], function(){
+
+//<![CDATA[
+    function Emosys_Core_clearJsCommand() {
+        var execMessage = $('clear_js_result');
+
+        new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+            onSuccess: function(response) {
+                var result = '<?php echo __('Error during clear JS execution.') ?>';
+                try {
+                    if (response.responseText.isJSON()) {
+                        response = response.responseText.evalJSON();
+                        result = response.message;
+                    }
+                    if (response.valid == 1) {
+                        execMessage.removeClassName('hidden').addClassName('success')
+                    } else {
+                        execMessage.removeClassName('hidden').addClassName('error')
+                    }
+                } catch (e) {
+                    execMessage.removeClassName('hidden').addClassName('error')
+                }
+                execMessage.update(result.replace("/(?:\r\n|\r|\n)/g", '<br />'));
+            }
+        });
+    }
+
+    window.Emosys_Core_clearJsCommand = Emosys_Core_clearJsCommand;
+//]]>
+
+});
+</script>
+<div class="actions actions-exec-command">
+    <div id="clear_js_command" class="message-validation success"></div>
+    <button onclick="javascript:Emosys_Core_clearJsCommand(); return false;" class="action-exec-command" type="button" id="<?php echo $block->getHtmlId() ?>">
+        <span><?php echo $block->escapeHtml($block->getButtonLabel()) ?></span>
+    </button>
+    <div id="clear_js_result" class="message-validation hidden"></div>
+</div>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 SalesIds. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="top.search">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">SalesIds_CatalogSearchAutocomplete::search/form.mini.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="header.main.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="mobile.search" as="mobileSearch" template="SalesIds_CatalogSearchAutocomplete::search/form.mobile.phtml" />
+        </referenceBlock>
+    </body>
+</page>

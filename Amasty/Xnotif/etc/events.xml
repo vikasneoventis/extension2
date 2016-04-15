@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2016 Amasty (https://www.amasty.com)
+ * @package Amasty_Xnotif
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="core_layout_render_element">
+        <observer name="amxnotif_handleBlockAlert" instance="Amasty\Xnotif\Observer\handleBlockAlert"/>
+    </event>
+    <event name="catalog_controller_product_view">
+        <observer name="amxnotif_saveCustomer" instance="Amasty\Xnotif\Observer\saveCustomer"/>
+    </event>
+</config>

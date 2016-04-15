@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+  * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category    Ced
+ * @package     Ced_SocialLogin
+ * @author      CedCommerce Magento Core Team <Ced_MagentoCoreTeam@cedcommerce.com>
+ * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/**
+ * SocialLogin  layout/ced/sociallogin.xml
+ *
+ * @category    Ced
+ * @package     Ced_SocialLogin
+ * @author      CedCommerce Magento Core Team <Ced_MagentoCoreTeam@cedcommerce.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="ced_sociallogin_facebook_button" />
+    <head>
+        <!-- for css file -->
+        <css src="Ced_SocialLogin::css/styles.css"/>
+        <css src="Ced_SocialLogin::css/google/button.css"/>
+        <css src="Ced_SocialLogin::css/facebook/button.css"/>
+        <css src="Ced_SocialLogin::css/twitter/button.css"/>
+        <css src="Ced_SocialLogin::css/linkedin/button.css"/>
+    </head>
+    <referenceContainer name="content">
+        <block after="customer_form_register" class="Ced\SocialLogin\Block\Container\Login" name="ced_sociallogin_register" template="login.phtml" cacheable="false">
+            <block class="Ced\SocialLogin\Block\Google\Button" name="ced_google_login_button" template="google/button.phtml" cacheable="false">
+                <arguments>
+                    <argument name="button_text" translate="true" xsi:type="string">Login</argument>
+                </arguments>
+            </block>
+            <block class="Ced\SocialLogin\Block\Facebook\Button" name="ced_facebook_login_button" template="facebook/button.phtml" cacheable="false">
+                <arguments>
+                    <argument name="button_text" translate="true" xsi:type="string">Login</argument>
+                </arguments>
+            </block>
+            <block class="Ced\SocialLogin\Block\Twitter\Button" name="ced_twitter_login_button" template="twitter/button.phtml" cacheable="false">
+                <arguments>
+                    <argument name="button_text" translate="true" xsi:type="string">Login</argument>
+                </arguments>
+            </block>
+            <block class="Ced\SocialLogin\Block\Linkedin\Button" name="ced_linkedin_login_button" template="linkedin/button.phtml" cacheable="false">
+                <arguments>
+                    <argument name="button_text" translate="true" xsi:type="string">Login</argument>
+                </arguments>
+            </block>
+
+        </block>
+    </referenceContainer>
+</page>

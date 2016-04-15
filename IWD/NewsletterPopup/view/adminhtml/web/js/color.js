@@ -6,7 +6,7 @@ define([
     'jquery',
     'uiClass',
     'underscore',
-    'ColorPicker'
+    'jquery/colorpicker/js/colorpicker'
 ], function ($, Class, _) {
     'use strict';
 

@@ -1,0 +1,45 @@
+<?php
+$range = $this->getPriceRange($filter);
+$url = $this->getFilterUrl($filter);
+?>
+
+<script>
+    var price_url = "<?php echo $url; ?>";
+    require([
+        'jquery',
+        "jquery/ui",
+        'domReady!'
+    ], function ($) {
+//     `use strict`;
+//require(["jquery" , "jquery/jquery-ui"], function($){
+        // ...
+        $("div#price-slider").slider({
+            range: true,
+            min: <?php echo $range['min']; ?>,
+            max: <?php echo $range['max']; ?>,
+            values: [<?php echo $range['min'] ?>, <?php echo $range['max'] ?>],
+            slide: function (event, ui) {
+                $("#amount-min").val("$" + ui.values[ 0 ] );
+                $("#amount-max").val("$" + ui.values[ 1 ]);
+            },
+            change: function (event, ui) {
+                //alert(ui.values[0]+"~"+ui.values[1]);
+                window.location.href = price_url + ui.values[0] + "-" + ui.values[1];
+            }
+        });
+        $("#amount-min").val("$" + $("#price-slider").slider("values", 0) );
+        $("#amount-max").val("$" + $("#price-slider").slider("values", 1));
+    });
+</script>
+<?php
+?>      
+
+<div class="filter-price-slider">
+    <div id="price-slider"></div>
+    <span class="amount-price amount-min">   
+        <input type="text" id="amount-min" readonly />
+    </span>
+    <span class="amount-price amount-max">   
+        <input type="text" id="amount-max" readonly />
+    </span>
+</div>

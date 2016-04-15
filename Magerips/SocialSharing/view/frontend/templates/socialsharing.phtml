@@ -1,0 +1,37 @@
+<?php
+$enableWhatsapp=$block->enableWhatsapp();
+$enableFacebook=$block->enableFacebook();
+ $enableTwitter=$block->enableTwitter();
+$enableGoogle=$block->enableGoogleplus();
+$enablePinit=$block->enablePinit();
+$enableGoogleShare=$block->enableGoogleshare();
+?>
+
+<div class="magerips_social">
+<?php if($enableWhatsapp==1): 
+echo $block->getWhatsappButton();
+endif; 
+
+  if($enableFacebook==1):
+echo $block->getFacebookButton();
+endif; 
+ 
+if($enableTwitter==1):
+echo $block->getTwitterButton();
+  endif; 
+  
+  if($enablePinit==1):
+  echo $block->getPinItButton();
+endif; 
+  
+ if($enableGoogle==1 || $enableGoogleShare==1){
+	  echo  '<script src="https://apis.google.com/js/platform.js" async defer></script>';
+  }
+ if($enableGoogleShare==1):
+  echo $block->getGoogleShareButton();
+  endif; 
+ if($enableGoogle==1): 
+  echo $block->getGooglePlusButton();
+ endif; 
+ ?>
+</div>

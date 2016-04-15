@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Developer\Model\TemplateEngine\Plugin\DebugHints" type="Emosys\Custom\Block\Template\DebugHints" />
+    <preference for="Magento\Store\Controller\Store\SwitchAction" type="Emosys\Custom\Controller\Store\SwitchAction" />
+    <!-- <preference for="Magento\Catalog\Block\Product\View\Gallery" type="Emosys\Custom\Block\Catalog\Product\View\Gallery" /> -->
+    <preference for="Magento\Cms\Model\Template\Filter" type="Emosys\Custom\Model\Cms\Template\Filter" />
+    <preference for="Magento\Email\Model\Template\Filter" type="Emosys\Custom\Model\Email\Template\Filter" />
+    <preference for="Magento\Customer\Block\Widget\Dob" type="Emosys\Custom\Block\Customer\Widget\Dob" />
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Emosys_Banner::item" title="Banners" module="Emosys_Banner" sortOrder="20" parent="Emosys_Base::config" action="emosys_banner/item" resource="Emosys_Banner::item"/>
+    </menu>
+</config>

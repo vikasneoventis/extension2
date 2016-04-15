@@ -17,11 +17,6 @@ class Converter
     protected $categoryFactory;
 
     /**
-     * @var \Magento\CatalogSampleData\Model\Product\Converter
-     */
-    protected $productConverter;
-
-    /**
      * @var \Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory
      */
     protected $attributeCollectionFactory;
@@ -49,7 +44,6 @@ class Converter
     /**
      * @param \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $categoryFactory
      * @param \Magento\Eav\Model\Config $eavConfig
-     * @param \Magento\CatalogSampleData\Model\Product\Converter $productConverter
      * @param \Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory $attributeCollectionFactory
      * @param \Magento\Eav\Model\ResourceModel\Entity\Attribute\Option\CollectionFactory $attrOptionCollectionFactory
      * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
@@ -57,14 +51,12 @@ class Converter
     public function __construct(
         \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $categoryFactory,
         \Magento\Eav\Model\Config $eavConfig,
-        \Magento\CatalogSampleData\Model\Product\Converter $productConverter,
         \Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory $attributeCollectionFactory,
         \Magento\Eav\Model\ResourceModel\Entity\Attribute\Option\CollectionFactory $attrOptionCollectionFactory,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
     ) {
         $this->categoryFactory = $categoryFactory;
         $this->eavConfig = $eavConfig;
-        $this->productConverter = $productConverter;
         $this->attributeCollectionFactory = $attributeCollectionFactory;
         $this->attrOptionCollectionFactory = $attrOptionCollectionFactory;
         $this->productCollectionFactory = $productCollectionFactory;
@@ -168,27 +160,6 @@ class Converter
             }
         }
         return $replaceData;
-    }
-
-    /**
-     * @param string $urlAttributes
-     * @return string
-     */
-    protected function getUrlFilter($urlAttributes)
-    {
-        $separatedAttributes = $this->getArrayValue($urlAttributes, ';');
-        $urlFilter = null;
-        foreach ($separatedAttributes as $attributeNumber => $attributeValue) {
-            $attributeData = $this->getArrayValue($attributeValue, '=');
-            $attributeOptions = $this->productConverter->getAttributeOptions($attributeData[0]);
-            $attributeValue = $attributeOptions->getItemByColumnValue('value', $attributeData[1]);
-            if ($attributeNumber == 0) {
-                $urlFilter = $attributeData[0] . '=' . $attributeValue->getId();
-                continue;
-            }
-            $urlFilter .= '&' . $attributeData[0] . '=' . $attributeValue->getId();
-        }
-        return $urlFilter;
     }
 
     /**

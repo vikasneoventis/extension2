@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <!-- Set HTTP Client timeout to 60 seconds -->
+    <virtualType name="Ced\SocialLogin\HTTP\ZendClientFactory" type="Magento\Framework\HTTP\ZendClientFactory">
+        <arguments>
+            <argument name="timeout" xsi:type="string">60</argument>
+        </arguments>
+    </virtualType>
+    <!-- Set custom HTTP Client as argument -->
+    <type name="Ced\SocialLogin\Model\Facebook\Oauth2\Client">
+        <arguments>
+            <argument name="httpClientFactory" xsi:type="object">Ced\SocialLogin\HTTP\ZendClientFactory</argument>
+        </arguments>
+    </type>
+	<type name="Ced\SocialLogin\Model\Google\Oauth2\Client">
+        <arguments>
+            <argument name="httpClientFactory" xsi:type="object">Ced\SocialLogin\HTTP\ZendClientFactory</argument>
+        </arguments>
+    </type>
+	<type name="Ced\SocialLogin\Model\Twitter\Oauth2\Client">
+        <arguments>
+            <argument name="httpClientFactory" xsi:type="object">Ced\SocialLogin\HTTP\ZendClientFactory</argument>
+        </arguments>
+    </type>
+	<type name="Ced\SocialLogin\Model\Linkedin\Oauth2\Client">
+        <arguments>
+            <argument name="httpClientFactory" xsi:type="object">Ced\SocialLogin\HTTP\ZendClientFactory</argument>
+        </arguments>
+    </type>
+    <!-- Set custom HTTP Client as argument -->
+    <type name="Ced\SocialLogin\Helper\Data">
+        <arguments>
+            <argument name="httpClientFactory" xsi:type="object">Ced\SocialLogin\HTTP\ZendClientFactory</argument>
+        </arguments>
+    </type>
+	<type name="Ced\SocialLogin\Model\Google\Oauth2\Client">
+       <arguments>
+            <argument name="httpClientFactory" xsi:type="object">Ced\SocialLogin\HTTP\ZendClientFactory</argument>
+        </arguments>
+    </type>
+    <!-- Add custom setup class -->
+    <type name="Magento\Framework\Module\Setup">
+        <arguments>
+            <argument name="resourceTypes" xsi:type="array">
+                <item name="ced_sociallogin_setup" xsi:type="string">Ced\SocialLogin\Model\Resource\Setup</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

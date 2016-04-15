@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="../../Core/etc/config.xsd">
+	<default>
+		<socialsharing>
+			<whatsapp>
+				<enable_whatsapp>0</enable_whatsapp>
+				<button_text>Share</button_text>
+				<share_desc>Take a look at this awesome Product: 
+
+Product Name: [product-title]
+
+Product Price: [product-price]
+
+Product short description: [product-description]
+
+More Information:</share_desc>
+				<description_limit>50</description_limit>
+				<button_size>medium</button_size>
+			</whatsapp>
+			<facebook>
+				<enable_facebook>0</enable_facebook>
+				<display_onlylike>0</display_onlylike>
+				<display_facebook_count>0</display_facebook_count>
+			</facebook>
+			<googleplus>
+				<enable_google_plus>0</enable_google_plus>
+				<enable_google_share>0</enable_google_share>
+				<display_google_count>0</display_google_count>
+			</googleplus>
+			<twitter>
+				<enable_twitter>0</enable_twitter>
+			</twitter>
+			<pinitsharing>
+				<enable_pinit>0</enable_pinit>
+				<display_pinit_count>0</display_pinit_count>
+			</pinitsharing>	
+		</socialsharing>
+	</default>
+</config>

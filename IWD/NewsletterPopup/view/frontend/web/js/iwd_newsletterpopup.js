@@ -62,7 +62,9 @@ define([
                             this.closeModal();
 
                         }
-                    }]
+                    }],
+                    clickableOverlay: true,
+                    innerScroll: true
                 });
             },
 
@@ -98,7 +100,7 @@ define([
                     }
                     $.ajax({
                         type: "POST",
-                        url: "/newsletterpopup/ajax/subscribe",
+                        url: $(this).attr('data-post'),
                         data: {email: email},
                         showLoader: true
                     }).done(function (response) {

@@ -1,0 +1,62 @@
+<?php
+/**
+ * @author Emosys team
+ * @copyright Copyright (c) 2016 Emosys Ltd (http://www.emosys.com)
+ * @package Emosys_Banner
+ */
+?>
+<?php 
+$item = $this->getItem();
+if ( !$item || !$item->getId() ) {
+    return;
+}
+$suffix = md5(mt_rand() . time());
+$collection = $item->getPhotoCollection();
+if ( !count($collection) ) {
+    return;
+}
+?>
+
+<div class="bxslider-wrapper">
+    <div class="bxslider bxslider-<?php echo $suffix; ?>">
+        <?php foreach ($collection as $_photo) : ?>
+            <?php 
+            if($_link = $_photo->getData('link')) {
+                if(!preg_match('/^http[s]?:\/\//', $_link)) {
+                    $_link = $this->getUrl($_link);
+                }
+            }
+            ?>
+            <div class="slider-item">
+                <?php if($_link): ?>
+                    <a href="<?php echo $_link; ?>">
+                <?php endif; ?>
+                    <img src="<?php echo $_photo->getSrc(); ?>" />
+                <?php if($_link): ?>
+                    </a>
+                <?php endif; ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>
+<script type="text/javascript">// <![CDATA[
+require([
+    'jquery',
+    'bxslider'
+    ], function ($) {
+        $('.bxslider-<?php echo $suffix; ?>').bxSlider({
+            mode: 'horizontal',
+            speed: 500,
+            infiniteLoop: true,
+            auto: true,
+            pause: 10000,
+            moveSlides: 1,
+            slideMargin: 20,
+            slideWidth: 217,
+            minSlides: 1,
+            maxSlides: 5,
+            controls: true,
+            pager: false,
+        });
+});
+// ]]></script>

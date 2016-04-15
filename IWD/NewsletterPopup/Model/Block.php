@@ -4,9 +4,7 @@
  * Developer: Andrew Chornij "iwd.andrew@gmail.com"
  * Date: 11.12.2015
  */
-namespace \IWD\NewsletterPopup\Model;
-
-//use Magento\Framework\Setup\SampleData\Context as SampleDataContext;
+namespace IWD\NewsletterPopup\Model;
 
 /**
  * Class Block
@@ -39,19 +37,21 @@ class Block
     protected $categoryRepository;
 
     /**
-     * @param SampleDataContext $sampleDataContext
+     * @param \Magento\Framework\Setup\SampleData\FixtureManager $fixtureManager
+     * @param \Magento\Framework\File\Csv $csvReader
      * @param \Magento\Cms\Model\BlockFactory $blockFactory
      * @param \IWD\NewsletterPopup\Model\Block\Converter $converter
      * @param \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository
      */
     public function __construct(
-        SampleDataContext $sampleDataContext,
+        \Magento\Framework\Setup\SampleData\FixtureManager $fixtureManager,
+        \Magento\Framework\File\Csv $csvReader,
         \Magento\Cms\Model\BlockFactory $blockFactory,
         \IWD\NewsletterPopup\Model\Block\Converter $converter,
         \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository
     ) {
-        $this->fixtureManager = $sampleDataContext->getFixtureManager();
-        $this->csvReader = $sampleDataContext->getCsvReader();
+        $this->fixtureManager = $fixtureManager;
+        $this->csvReader = $csvReader;
         $this->blockFactory = $blockFactory;
         $this->converter = $converter;
         $this->categoryRepository = $categoryRepository;

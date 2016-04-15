@@ -1,0 +1,49 @@
+<?php
+/**
+ * @author Emosys team
+ * @copyright Copyright (c) 2016 Emosys Ltd (http://www.emosys.com)
+ * @package Emosys_Banner
+ */
+?>
+<?php 
+$item = $this->getItem();
+if ( !$item || !$item->getId() ) {
+    return;
+}
+$suffix = md5(mt_rand() . time());
+$collection = $item->getPhotoCollection();
+if ( !count($collection) ) {
+    return;
+}
+?>
+<div class="emosys-slider camera-slider-wrapper">
+    <div class="camera_wrap camera-slider" id="camera-slider-<?php echo $suffix; ?>">
+        <?php foreach ($collection as $_photo) : ?>
+            <?php 
+            if($_link = $_photo->getData('link')) {
+                if(!preg_match('/^http[s]?:\/\//', $_link)) {
+                    $_link = $this->getUrl($_link);
+                }
+            }
+            ?>
+            <div data-src="<?php echo $_photo->getSrc(); ?>" class="camera-item"<?php if($_link): ?> data-link="<?php echo $_link; ?>"<?php endif; ?>>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>
+<script type="text/javascript">
+require(['jquery','camera'],function($){
+    $('#camera-slider-<?php echo $suffix; ?>').camera({
+        height: '38%',
+        width: 'auto',
+        loader: 'none',
+        pagination: true,
+        hover: false,
+        opacityOnGrid: false,
+        playPause: false,
+        autoAdvance: true,
+        time: 7000,
+        fx: 'scrollHorz'
+    });
+});
+</script>

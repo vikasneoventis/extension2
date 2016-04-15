@@ -1,0 +1,79 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * @see \Magento\Customer\Block\Adminhtml\System\Config\Validatevat
+ */
+?>
+<script>
+require(['prototype'], function(){
+
+//<![CDATA[
+    function Emosys_Core_sampleCommand() {
+        var execCommand = $('exec_command');
+        var execTemplate = 'php bin/magento __COMMAND__ __ARGS__';
+
+        var sampleCommand = execTemplate.replace('__COMMAND__', $('<?php echo $block->getCommandField(); ?>').value);
+        sampleCommand = sampleCommand.replace('__ARGS__', $('<?php echo $block->getArgsField(); ?>').value);
+
+        execCommand.update(sampleCommand);
+    }
+
+    window.Emosys_Core_sampleCommand = Emosys_Core_sampleCommand;
+
+    $('<?php echo $block->getCommandField(); ?>').observe('change', function(event) {
+        Emosys_Core_sampleCommand();
+    });
+    $('<?php echo $block->getArgsField(); ?>').observe('change', function(event) {
+        Emosys_Core_sampleCommand();
+    });
+
+    function Emosys_Core_execCommand() {
+        var execMessage = $('exec_result');
+
+        params = {
+            command: $('<?php echo $block->getCommandField(); ?>').value,
+            args: $('<?php echo $block->getArgsField(); ?>').value
+        };
+
+        new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+            parameters: params,
+            onSuccess: function(response) {
+                var result = '<?php echo __('Error during CLI command execution.') ?>';
+                try {
+                    if (response.responseText.isJSON()) {
+                        response = response.responseText.evalJSON();
+                        result = response.message;
+                    }
+                    if (response.valid == 1) {
+                        execMessage.removeClassName('hidden').addClassName('success')
+                    } else {
+                        execMessage.removeClassName('hidden').addClassName('error')
+                    }
+                } catch (e) {
+                    execMessage.removeClassName('hidden').addClassName('error')
+                }
+                execMessage.update(result.replace("/(?:\r\n|\r|\n)/g", '<br />'));
+            }
+        });
+    }
+
+    window.Emosys_Core_execCommand = Emosys_Core_execCommand;
+//]]>
+
+});
+</script>
+<div class="actions actions-exec-command">
+    <div id="exec_command" class="message-validation success"></div>
+    <button onclick="javascript:Emosys_Core_execCommand(); return false;" class="action-exec-command" type="button" id="<?php echo $block->getHtmlId() ?>">
+        <span><?php echo $block->escapeHtml($block->getButtonLabel()) ?></span>
+    </button>
+    <div id="exec_result" class="message-validation hidden"></div>
+</div>

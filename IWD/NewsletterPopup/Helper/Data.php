@@ -9,11 +9,6 @@ namespace IWD\NewsletterPopup\Helper;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
-    /**
-     * @var \Magento\Framework\App\Config\ScopeConfigInterface
-     */
-    protected $_scopeConfig;
-
     const ENABLE = 'iwd_newsletterpopup/general/enable_in_frontend';
     const POPUP_WIDTH = 'iwd_newsletterpopup/general/popup_with';
     const POPUP_TOP_POSITION = 'iwd_newsletterpopup/general/popup_top_position';
@@ -89,65 +84,56 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     const XML_PATH_RSS_BG_HOVER =  		'iwd_newsletterpopup/social_icons/rss_icon_hover_background';
     const XML_PATH_RSS_ICON_HOVER= 		'iwd_newsletterpopup/social_icons/rss_icon_hover_color';
 
-    public function __construct(
-        \Magento\Framework\App\Helper\Context $context,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-    )
-    {
-        parent::__construct($context);
-        $this->_scopeConfig = $scopeConfig;
-    }
-
     public function getEnable(){
-        return $this->_scopeConfig->getValue(self::ENABLE);
+        return $this->scopeConfig->getValue(self::ENABLE);
     }
     public function getPopupWidth(){
-        return $this->_scopeConfig->getValue(self::POPUP_WIDTH);
+        return $this->scopeConfig->getValue(self::POPUP_WIDTH);
     }
     public function getPopupTopPosition(){
-        return $this->_scopeConfig->getValue(self::POPUP_TOP_POSITION);
+        return $this->scopeConfig->getValue(self::POPUP_TOP_POSITION);
     }
     public function getEnableLinnkInFrontend(){
-        return $this->_scopeConfig->getValue(self::ENABLE_LINK_IN_FRONTEND);
+        return $this->scopeConfig->getValue(self::ENABLE_LINK_IN_FRONTEND);
     }
     public function getFooterLinkText(){
-        return $this->_scopeConfig->getValue(self::FOOTER_LINK_TEXT);
+        return $this->scopeConfig->getValue(self::FOOTER_LINK_TEXT);
     }
     public function getCssPathForLinks(){
-        return $this->_scopeConfig->getValue(self::CSS_PATH_FOR_LINKS);
+        return $this->scopeConfig->getValue(self::CSS_PATH_FOR_LINKS);
     }
 
     public function getButtonColor(){
-        return $this->_scopeConfig->getValue(self::BUTTON_COLOR);
+        return $this->scopeConfig->getValue(self::BUTTON_COLOR);
     }
     public function getButtonHoverColor(){
-        return $this->_scopeConfig->getValue(self::BUTTON_HOVER_COLOR);
+        return $this->scopeConfig->getValue(self::BUTTON_HOVER_COLOR);
     }
     public function getButtonTextColor(){
-        return $this->_scopeConfig->getValue(self::BUTTON_TEXT_COLOR);
+        return $this->scopeConfig->getValue(self::BUTTON_TEXT_COLOR);
     }
     public function getButtonHoverTextColor(){
-        return $this->_scopeConfig->getValue(self::BUTTON_TEXT_HOVER_COLOR);
+        return $this->scopeConfig->getValue(self::BUTTON_TEXT_HOVER_COLOR);
     }
     public function getMultipleGuestSubscription(){
-        return $this->_scopeConfig->getValue(self::MULTIPLE_GUEST_SUBSCRIPTION);
+        return $this->scopeConfig->getValue(self::MULTIPLE_GUEST_SUBSCRIPTION);
     }
 
     public function getJsonConfig(){
         $config = array();
-        $config['enableExtension'] = $this->_scopeConfig->getValue(self::ENABLE);
-        $config['topPosition'] = $this->_scopeConfig->getValue(self::POPUP_TOP_POSITION);
-        $config['loadDelay'] = $this->_scopeConfig->getValue(self::POPUP_TIMING);
-        $config['enableLinkInFrontend'] = $this->_scopeConfig->getValue(self::ENABLE_LINK_IN_FRONTEND);
-        $config['footerLinkText'] = $this->_scopeConfig->getValue(self::FOOTER_LINK_TEXT);
-        $config['cssPathForLinks'] = $this->_scopeConfig->getValue(self::CSS_PATH_FOR_LINKS);
+        $config['enableExtension'] = $this->scopeConfig->getValue(self::ENABLE);
+        $config['topPosition'] = $this->scopeConfig->getValue(self::POPUP_TOP_POSITION);
+        $config['loadDelay'] = $this->scopeConfig->getValue(self::POPUP_TIMING);
+        $config['enableLinkInFrontend'] = $this->scopeConfig->getValue(self::ENABLE_LINK_IN_FRONTEND);
+        $config['footerLinkText'] = $this->scopeConfig->getValue(self::FOOTER_LINK_TEXT);
+        $config['cssPathForLinks'] = $this->scopeConfig->getValue(self::CSS_PATH_FOR_LINKS);
 
         return json_encode($config);
     }
 
     public function getSocialIcons()
     {
-        if($this->_scopeConfig->getValue(self::XML_PATH_ICONSTYLE)) {
+        if($this->scopeConfig->getValue(self::XML_PATH_ICONSTYLE)) {
             $class = 'social_links standard';
             $id = 'standard_color_for_icons';
         }
@@ -283,9 +269,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
         foreach ($map as $social) {
 
-            if ($this->_scopeConfig->getValue('iwd_newsletterpopup/social_icons/' . $social['enabled'])) {
+            if ($this->scopeConfig->getValue('iwd_newsletterpopup/social_icons/' . $social['enabled'])) {
                 //html
-                $link = $this->_scopeConfig->getValue('iwd_newsletterpopup/social_icons/' . $social['link']);
+                $link = $this->scopeConfig->getValue('iwd_newsletterpopup/social_icons/' . $social['link']);
                 if ($link) {
                     $socialNetwork = '<a href="' . $link . '" class="'. $social['class'] .'" target="_blank"><span class="fa-stack fa-lg"> <span class="fa fa-square fa-stack-40">&nbsp;</span> <span class="fa '. $social['fa'] .' fa-stack-20">&nbsp;</span> </span></a>';
                     $html .= $socialNetwork;
@@ -300,65 +286,65 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function getSocialIconsColor(){
         $colors = array();
-        $colors['facebook_bg'] = $this->_scopeConfig->getValue(self::XML_PATH_FACEBOOK_BG);
-        $colors['facebook_icon'] = $this->_scopeConfig->getValue(self::XML_PATH_FACEBOOK_ICON);
-        $colors['facebook_bg_hover'] = $this->_scopeConfig->getValue(self::XML_PATH_FACEBOOK_BG_HOVER);
-        $colors['facebook_icon_hover'] = $this->_scopeConfig->getValue(self::XML_PATH_FACEBOOK_ICON_HOVER);
+        $colors['facebook_bg'] = $this->scopeConfig->getValue(self::XML_PATH_FACEBOOK_BG);
+        $colors['facebook_icon'] = $this->scopeConfig->getValue(self::XML_PATH_FACEBOOK_ICON);
+        $colors['facebook_bg_hover'] = $this->scopeConfig->getValue(self::XML_PATH_FACEBOOK_BG_HOVER);
+        $colors['facebook_icon_hover'] = $this->scopeConfig->getValue(self::XML_PATH_FACEBOOK_ICON_HOVER);
 
-        $colors['twitter_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_TWITTER_BG);
-        $colors['twitter_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_TWITTER_ICON);
-        $colors['twitter_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_TWITTER_BG_HOVER);
-        $colors['twitter_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_TWITTER_ICON_HOVER);
+        $colors['twitter_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_TWITTER_BG);
+        $colors['twitter_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_TWITTER_ICON);
+        $colors['twitter_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_TWITTER_BG_HOVER);
+        $colors['twitter_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_TWITTER_ICON_HOVER);
 
-        $colors['linkedIn_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_LINKEDIN_BG);
-        $colors['linkedin_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_LINKEDIN_ICON);
-        $colors['linkedin_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_LINKEDIN_BG_HOVER);
-        $colors['linkedin_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_LINKEDIN_ICON_HOVER);
+        $colors['linkedIn_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_LINKEDIN_BG);
+        $colors['linkedin_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_LINKEDIN_ICON);
+        $colors['linkedin_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_LINKEDIN_BG_HOVER);
+        $colors['linkedin_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_LINKEDIN_ICON_HOVER);
 
-        $colors['google_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_GOOGLE_BG);
-        $colors['google_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_GOOGLE_ICON);
-        $colors['google_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_GOOGLE_BG_HOVER);
-        $colors['google_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_GOOGLE_ICON_HOVER);
+        $colors['google_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_GOOGLE_BG);
+        $colors['google_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_GOOGLE_ICON);
+        $colors['google_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_GOOGLE_BG_HOVER);
+        $colors['google_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_GOOGLE_ICON_HOVER);
 
-        $colors['youtube_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_YOUTUBE_BG);
-        $colors['youtube_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_YOUTUBE_ICON);
-        $colors['youtube_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_YOUTUBE_BG_HOVER);
-        $colors['youtube_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_YOUTUBE_ICON_HOVER);
+        $colors['youtube_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_YOUTUBE_BG);
+        $colors['youtube_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_YOUTUBE_ICON);
+        $colors['youtube_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_YOUTUBE_BG_HOVER);
+        $colors['youtube_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_YOUTUBE_ICON_HOVER);
 
-        $colors['flickr_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_FLICKR_BG);
-        $colors['flickr_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_FLICKR_ICON);
-        $colors['flickr_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_FLICKR_BG_HOVER);
-        $colors['flickr_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_FLICKR_ICON_HOVER);
+        $colors['flickr_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_FLICKR_BG);
+        $colors['flickr_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_FLICKR_ICON);
+        $colors['flickr_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_FLICKR_BG_HOVER);
+        $colors['flickr_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_FLICKR_ICON_HOVER);
 
-        $colors['vimeo_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_VIMEO_BG);
-        $colors['vimeo_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_VIMEO_ICON);
-        $colors['vimeo_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_VIMEO_BG_HOVER);
-        $colors['vimeo_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_VIMEO_ICON_HOVER);
+        $colors['vimeo_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_VIMEO_BG);
+        $colors['vimeo_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_VIMEO_ICON);
+        $colors['vimeo_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_VIMEO_BG_HOVER);
+        $colors['vimeo_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_VIMEO_ICON_HOVER);
 
-        $colors['pinterest_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_PINTEREST_BG);
-        $colors['pinterest_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_PINTEREST_ICON);
-        $colors['pinterest_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_PINTEREST_BG_HOVER);
-        $colors['pinterest_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_PINTEREST_ICON_HOVER);
+        $colors['pinterest_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_PINTEREST_BG);
+        $colors['pinterest_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_PINTEREST_ICON);
+        $colors['pinterest_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_PINTEREST_BG_HOVER);
+        $colors['pinterest_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_PINTEREST_ICON_HOVER);
 
-        $colors['instagram_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_INSTAGRAM_BG);
-        $colors['instagram_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_INSTAGRAM_ICON);
-        $colors['instagram_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_INSTAGRAM_BG_HOVER);
-        $colors['instagram_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_INSTAGRAM_ICON_HOVER);
+        $colors['instagram_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_INSTAGRAM_BG);
+        $colors['instagram_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_INSTAGRAM_ICON);
+        $colors['instagram_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_INSTAGRAM_BG_HOVER);
+        $colors['instagram_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_INSTAGRAM_ICON_HOVER);
 
-        $colors['foursquare_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_FORSQUARE_BG);
-        $colors['foursquare_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_FORSQUARE_ICON);
-        $colors['foursquare_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_FORSQUARE_BG_HOVER);
-        $colors['foursquare_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_FORSQUARE_ICON_HOVER);
+        $colors['foursquare_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_FORSQUARE_BG);
+        $colors['foursquare_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_FORSQUARE_ICON);
+        $colors['foursquare_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_FORSQUARE_BG_HOVER);
+        $colors['foursquare_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_FORSQUARE_ICON_HOVER);
 
-        $colors['tumblr_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_TUMBLR_BG);
-        $colors['tumblr_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_TUMBLR_ICON);
-        $colors['tumblr_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_TUMBLR_BG_HOVER);
-        $colors['tumblr_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_TUMBLR_ICON_HOVER);
+        $colors['tumblr_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_TUMBLR_BG);
+        $colors['tumblr_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_TUMBLR_ICON);
+        $colors['tumblr_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_TUMBLR_BG_HOVER);
+        $colors['tumblr_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_TUMBLR_ICON_HOVER);
 
-        $colors['rss_icon_background'] = $this->_scopeConfig->getValue(self::XML_PATH_RSS_BG);
-        $colors['rss_icon_color'] = $this->_scopeConfig->getValue(self::XML_PATH_RSS_ICON);
-        $colors['rss_icon_hover_background'] = $this->_scopeConfig->getValue(self::XML_PATH_RSS_BG_HOVER);
-        $colors['rss_icon_hover_color'] = $this->_scopeConfig->getValue(self::XML_PATH_RSS_ICON_HOVER);
+        $colors['rss_icon_background'] = $this->scopeConfig->getValue(self::XML_PATH_RSS_BG);
+        $colors['rss_icon_color'] = $this->scopeConfig->getValue(self::XML_PATH_RSS_ICON);
+        $colors['rss_icon_hover_background'] = $this->scopeConfig->getValue(self::XML_PATH_RSS_BG_HOVER);
+        $colors['rss_icon_hover_color'] = $this->scopeConfig->getValue(self::XML_PATH_RSS_ICON_HOVER);
 
         return json_encode($colors);
     }

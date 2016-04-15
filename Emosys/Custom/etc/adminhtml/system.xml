@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Emosys Team
+ * @copyright Copyright (c) 2016 Emosys Ltd (http://www.emosys.com)
+ * @package Emosys_Chat
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="emosys" translate="label" sortOrder="10">
+            <label>Emosys.com</label>
+        </tab>
+        <section id="emosys_custom" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>General</label>
+            <tab>emosys</tab>
+            <resource>Emosys_Custom::custom</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Landing Page</label>
+                <field id="background" translate="label" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image\Logo</backend_model>
+                    <base_url type="media" scope_info="1">logo</base_url>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

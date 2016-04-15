@@ -1,0 +1,87 @@
+<?php
+$_productCollection = $block->getLoadedProductCollection();
+$_countCollection = $_productCollection->count();
+if(!$_productCollection || !$_countCollection) {
+	return;
+}
+$suffix = md5(mt_rand() . time());
+$image = 'full_size';
+$_columnCount = 6;
+$_width = 175;
+$_margin = 20;
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_eHelper = $this->helper('Emosys\Custom\Helper\Data');
+?>
+<div class="portfolio-wrapper product-list-slider">
+	<div class="bxslider bxslsider-<?php echo $suffix; ?>">
+		<?php $i=0; ?>
+		<?php foreach ($_productCollection as $_product): ?>
+            <?php
+            $i++;
+            $moreClassItem = '';
+            if ($i % $_columnCount == 1) {
+                $moreClassItem .= ' first';
+            } elseif ($i % $_columnCount == 0) {
+                $moreClassItem .= ' last';
+            }
+            if ($i % 2 == 0) {
+                $moreClassItem .= ' even';
+            } else {
+                $moreClassItem .= ' odd';
+            }
+            $productImage = $block->getImage($_product, $image);
+            ?>
+            <div class="slider-item<?php echo $moreClassItem; ?>">
+            	<a href="<?php echo $_product->getProductUrl() ?>" class="product-photo">
+                    <?php echo $productImage->toHtml(); ?>
+                </a>
+                <h2 class="product-name">
+                    <a href="<?php echo $_product->getProductUrl() ?>"><?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?></a>
+                </h2>
+                <p class="product-weight product-box">
+                    <?php if ($_productWeight = $_eHelper->getProductWeight($_product)): ?>
+                        <?php echo $_productWeight; ?>
+                    <?php endif; ?>
+                </p>
+                <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
+            </div>
+        <?php endforeach; ?>
+	</div>
+	<div class="bx-container-controller">
+        <span class="bx-prev bx-prev-portfolio bx-prev-<?php echo $suffix; ?>"></span>
+        <span class="bx-text"><a href="<?php echo $block->getUrl('products.html'); ?>">Shop Now</a></span>
+        <span class="bx-next bx-next-portfolio bx-next-<?php echo $suffix; ?>"></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+require([
+    'jquery',
+    'bxslider'
+	], function ($) {
+	    $('.bxslsider-<?php echo $suffix; ?>').bxSlider({
+	    	mode: 'horizontal',
+            speed: 500,
+            <?php if ( $_countCollection > $_columnCount) : ?>
+                infiniteLoop: true,
+            <?php else: ?>
+                infiniteLoop: false,
+            <?php endif; ?>
+            auto: true,
+            pause: 10000,
+            moveSlides: 1,
+            slideMargin: <?php echo $_margin; ?>,
+            slideWidth: <?php echo $_width; ?>,
+            minSlides: 1,
+            maxSlides: <?php echo $_columnCount; ?>,
+            <?php if ( $_countCollection > $_columnCount) : ?>
+                nextSelector: '.bx-next-<?php echo $suffix; ?>',
+                prevSelector: '.bx-prev-<?php echo $suffix; ?>',
+                controls: true,
+            <?php else: ?>
+                controls: false,
+            <?php endif; ?>
+            pager: false
+	    });
+	});
+</script>

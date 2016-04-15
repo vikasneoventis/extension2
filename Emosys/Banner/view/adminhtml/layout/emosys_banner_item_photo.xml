@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root" label="Root">
+        <block class="Emosys\Banner\Block\Adminhtml\Item\Edit\Tab\Photo" name="emosys_banner.item.edit.tab.photo"/>
+        <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="photo_grid_serializer">
+            <arguments>
+                <argument name="input_names" xsi:type="string">position</argument>
+                <argument name="grid_block" xsi:type="string">emosys_banner.item.edit.tab.photo</argument>
+                <argument name="callback" xsi:type="string">getSelectedPhotos</argument>
+                <argument name="input_element_name" xsi:type="string">links[upsell]</argument>
+                <argument name="reload_param_name" xsi:type="string">products_upsell</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>

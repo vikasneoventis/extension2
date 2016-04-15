@@ -1,0 +1,74 @@
+<?php
+/**
+ * @author Emosys team
+ * @copyright Copyright (c) 2016 Emosys Ltd (http://www.emosys.com)
+ * @package Emosys_Banner
+ */
+?>
+<?php $item = $this->getItem() ?>
+<?php if ( $item->getId() ) : ?>
+    <?php $collection = $item->getPhotoCollection() ?>
+    <?php if ( count($collection) ) : ?>
+    <div class="widget block block-emosys-banner">
+        <!-- Swiper -->
+        <div class="swiper-container gallery-top">
+            <div class="swiper-wrapper">
+                <?php foreach ($collection as $_photo) : ?>
+                    <div class="swiper-slide" style="background-image:url(<?php echo $_photo->getSrc() ?>)"></div>
+                <?php endforeach ?>
+            </div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="swiper-container gallery-thumbs">
+            <div class="swiper-wrapper">
+                <?php foreach ($collection as $_photo) : ?>
+                    <div class="swiper-slide" style="background-image:url(<?php echo $_photo->getSrc() ?>)"></div>
+                <?php endforeach ?>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    require(['jquery','swiper'],function(){
+        var galleryTop = new Swiper('.gallery-top', {
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 10,
+            loop:true,
+            loopedSlides: 5,
+
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            /*
+            autoplay: 2000,
+            speed: 600,
+            direction: 'vertical',
+            slidesPerView: 'auto',
+            direction: 'horizontal',
+            effect: 'slide',
+            keyboardControl: false,
+            mousewheelControl: false,
+            paginationType: 'bullets',
+            */
+            paginationBulletRender: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + '</span>';
+            }
+        });
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            touchRatio: 0.2,
+            loop:true,
+            loopedSlides: 5, //looped slides should be the same
+            slideToClickedSlide: true
+        });
+        galleryTop.params.control = galleryThumbs;
+        galleryThumbs.params.control = galleryTop;
+    });
+    </script>
+    <?php endif ?>
+<?php endif ?>
